@@ -1,0 +1,522 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Anatomía de una Carga Web: Los 5 Segundos Críticos | Williboper Dev - Soluciones Web y Automatización</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Descubre qué experimenta un usuario al cargar tu web. Analizamos los 5 hitos técnicos críticos (TTFB, LCP, INP) donde pierdes o ganas clientes en WordPress." />
+  <meta name="author" content="Ing. Williams Pérez">
+  <meta name="robots" content="index, follow">
+
+  <!-- SEO: Enlace Canónico -->
+  <link rel="canonical" href="https://williboper.dev/blog/anatomia-de-una-carga-web-5-segundos-donde-pierdes-o-ganas-clientes">
+
+  <!-- Open Graph (redes sociales) -->
+  <meta property="og:url" content="https://williboper.dev/blog/anatomia-de-una-carga-web-5-segundos-donde-pierdes-o-ganas-clientes">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Anatomía de una Carga Web: Los 5 Segundos Críticos | Williboper Dev - Soluciones Web y Automatización">
+  <meta property="og:description" content="Descubre qué experimenta un usuario al cargar tu web. Analizamos los 5 hitos técnicos críticos (TTFB, LCP, INP) donde pierdes o ganas clientes en WordPress.">
+  <meta property="og:image" content="https://williboper.dev/images/og-post_3.png">
+  <meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="675">
+	<meta property="og:image:type" content="image/png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anatomía de una Carga Web: Los 5 Segundos Críticos | Williboper Dev - Soluciones Web y Automatización">
+  <meta name="twitter:description" content="Descubre qué experimenta un usuario al cargar tu web. Analizamos los 5 hitos técnicos críticos (TTFB, LCP, INP) donde pierdes o ganas clientes en WordPress.">
+  <meta name="twitter:image" content="https://williboper.dev/images/og-post_3.png">
+  <meta name="twitter:image:width" content="1200">
+  <meta name="twitter:image:height" content="675">
+  <meta name="twitter:image:type" content="image/png">
+
+  <!-- Fuentes e Iconos Externos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+  </noscript>
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print"
+    onload="this.media='all'"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer">
+  </noscript>
+
+  <!-- Estilos del Sitio -->
+  <link rel="stylesheet" href="../css/animate.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">
+  <link rel="stylesheet" href="../css/style.css">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../icon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../icon/favicon-16x16.png">
+  <link rel="manifest" href="../icon/site.webmanifest">
+
+  <!-- Canvas Confetti -->
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js" integrity="sha384-hbhUBXITXDJbdxAutkRZOGlStNARd6f3N2y0fDfrBwMhXEaeaCrpNu7g24F/vYDq" crossorigin="anonymous"></script>
+
+  <!-- JSON-LD para SEO del artículo -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://williboper.dev/blog/anatomia-de-una-carga-web-5-segundos-donde-pierdes-o-ganas-clientes"
+    },
+    "headline": "Anatomía de una Carga Web: Los 5 Segundos Críticos",
+    "description": "Descubre qué experimenta un usuario al cargar tu web. Analizamos los 5 hitos técnicos críticos (TTFB, LCP, INP) donde pierdes o ganas clientes en WordPress.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://williboper.dev/images/og-post_3.png",
+      "width": 1200,
+      "height": 675
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Ing. Williams Pérez",
+      "url": "https://williboper.dev"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Williboper Dev",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://williboper.dev/images/logo.webp",
+      }
+    },
+    "datePublished": "2026-05-20",
+    "dateModified": "2026-05-20"
+  }
+   </script>
+</head>
+
+<body class="h2-blog" data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand" href="../"><img src="../images/logo.webp" alt="Williboper Dev" 
+        width="50"
+        height="50"
+        decoding="async"
+        fetchpriority="high"
+        class="navbar-logo logo-default"></a>
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+          data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Alternar menú de navegación">
+          <span class="sr-only">Menú de navegación</span>
+          <span class="oi toggle-menu" aria-hidden="true"></span>
+          <span class="oi toggle-menu" aria-hidden="true"></span>
+          <span class="oi toggle-menu" aria-hidden="true"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav nav ml-auto">
+            <li class="nav-item"><a href="../index.html#home-section" class="nav-link"><span>Inicio</span></a></li>
+            <li class="nav-item"><a href="../index.html#services-section" class="nav-link"><span>Servicios</span></a></li>
+            <li class="nav-item"><a href="../index.html#projects-section" class="nav-link"><span>Portafolio</span></a>
+            </li>
+            <li class="nav-item"><a href="../index.html#blog-section" class="nav-link"><span>Blog</span></a></li>
+            <li class="nav-item"><a href="../index.html#about-section" class="nav-link"><span>Sobre Mi</span></a></li>
+            <li class="nav-item"><a href="../index.html#contact-section" class="nav-link"><span>Contacto</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido Principal del Post -->
+  <main>
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('../images/font-sobmi.webp');"
+      data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate pb-5 text-center">
+            <nav aria-label="Breadcrumb">
+              <ol class="breadcrumbs">
+                <li class="breadcrumb-item">
+                  <a href="../">Inicio</a>
+                  <span aria-hidden="true">
+                    <i class="fa fa-chevron-right"></i>
+                  </span>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Blog</li>
+              </ol>
+            </nav>
+            <h1 class="mb-0 bread">Anatomía de una carga web: Los 5 segundos críticos</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 ftco-animate">
+            <article>
+              <header>
+                <h2>Por qué cada milisegundo cuenta.</h2>
+                <div class="my-custom-col mb-3 mt-5">
+                  <p>
+                    Cuando un cliente potencial hace clic en el enlace de tu negocio, se activa un 
+                    <span class="timer-badge" aria-hidden="true">
+                      <i class="fas fa-stopwatch fa-spin-pulse mr-1"></i> 
+                      <span class="timer-count">00:03s</span>
+                    </span> 
+                    temporizador invisible. No importa qué tan atractiva sea tu marca personal o qué tan buenos sean tus servicios; si la infraestructura técnica falla en los primeros instantes, la experiencia se destruye.
+                  </p>
+                  <figure class="text-center my-4">
+                    <img src="../images/post_3.webp" alt="Vista de la anatomia de una carga web" class="img-fluid rounded img-mask"
+                    loading="lazy"
+                    decoding="async"
+                    width="1400 "
+                    height="768">
+                    <figcaption class="text-muted small mt-2">Estructura visual de la anatomía de una carga web</figcaption>
+                  </figure>
+                </div>
+              </header>
+
+              <p>Para mantener al lector atrapado y entender cómo optimizar un entorno en WordPress o en cualquier otro
+              entorno web, desarmemos el proceso de carga en <strong>5 hitos secuenciales de rendimiento</strong>. Esto es
+              lo que ocurre tras bambalinas:</p>
+
+              <h3 class="mb-3 mt-5">Fase 1 - El silencio inicial (El servidor responde)</h3>
+              <p>Métrica técnica oculta: <strong>TTFB (Time to First Byte)</strong>.</p>
+              <p>Es el primer suspiro. El usuario hace clic y la pantalla se queda completamente en blanco esperando que el
+              servidor despierte y envíe los primeros datos. Si tu hosting es deficiente o tu base de datos de WordPress
+              está sobrecargada, esta fase puede tardar segundos eternos.</p>
+              <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
+                <p class="mb-0">
+                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
+                  <strong>¿Cómo optimizarlo?:</strong> Implementando caché a nivel de servidor, optimizando las tablas de tu
+                  base de datos y utilizando <strong>redes de distribución de contenido (CDN)</strong> para acortar la distancia física entre el servidor y el usuario.
+                </p>
+              </div>
+
+              <h3 class="mb-3 mt-5">Fase 2 - El primer destello visual (Aparece la estructura)</h3>
+              <p>Métrica técnica oculta: <strong>FCP (First Contentful Paint)</strong>.</p>
+              <p>¡La web da señales de vida!, Es el momento exacto en el que el navegador renderiza el primer elemento en
+              pantalla: puede ser un color de fondo, una línea de menú o el logotipo de tu empresa. Psicológicamente, aquí
+              es donde el usuario se da cuenta de que la página no está rota.</p>
+              <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
+                <p class="mb-0">
+                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
+                  <strong>¿Cómo optimizarlo?:</strong> Minificando y limpiando los archivos CSS y JavaScript pesados que
+                  bloquean el renderizado inicial de la estructura de la web.
+                </p>
+              </div>
+
+              <h3 class="mb-3 mt-5">Fase 3 - El impacto del elemento principal (Carga el contenido)</h3>
+              <p>Métrica técnica crítica: <strong>LCP (Largest Contentful Paint)</strong>.</p>
+              <p>Aquí es donde Google pone la lupa. El navegador termina de dibujar el bloque de información más grande e
+              importante de la pantalla (el banner de bienvenida o tu propuesta de valor principal). Para garantizar una
+              retención exitosa, este hito debe ocurrir en menos de <strong>2.5 segundos</strong>.</p>
+              <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
+                <p class="mb-0">
+                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
+                  <strong>¿Cómo optimizarlo?:</strong> Convirtiendo las imágenes a formatos modernos como
+                  <strong>WebP/AVIF</strong> y asegurando que la imagen principal del encabezado jamás tenga activado el
+                  "Lazy Load" (retardo de carga), ya que debe aparecer de forma inmediata.
+                </p>
+              </div>
+
+              <h3 class="mb-3 mt-5">Fase 4 - El baile de los elementos (La estabilidad visual)</h3>
+              <p>Métrica técnica crítica: <strong>CLS (Cumulative Layout Shift)</strong>.</p>
+              <p>Mientras el contenido termina de bajar, las fuentes tipográficas cambian de tamaño o los banners se acomodan, provocando saltos bruscos que mueven el texto de posición. Si un usuario intenta pulsar un botón justo cuando la pantalla se desplaza, la frustración está asegurada. El diseño debe mantenerse firme.</p>
+              <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
+                <p class="mb-0">
+                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
+                  <strong>¿Cómo optimizarlo?:</strong> Declarando siempre las dimensiones exactas (ancho y alto) de las
+                  imágenes en el código HTML de WordPress para reservar su espacio en pantalla antes de que se descarguen.
+                </p>
+              </div>
+
+              <h3 class="mb-3 mt-5">Fase 5 - La web responde (Interactividad total)</h3>
+              <p>Métrica técnica crítica: <strong>INP (Interaction to Next Paint)</strong>.</p>
+              <p>La página parece completamente lista, pero falta la prueba de fuego: la velocidad de respuesta ante las acciones del usuario. Si la persona toca el menú móvil o intenta rellenar un formulario de contacto y la interfaz se congela debido a scripts pesados ejecutándose en segundo plano, abandonará el sitio frustrada.
+              </p>
+              <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
+                <p class="mb-0">
+                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
+                  <strong>¿Cómo optimizarlo?:</strong> Retardando o posponiendo la ejecución de JavaScript de terceros (como píxeles de seguimiento o widgets de chat en vivo) hasta que el usuario haya interactuado realmente con el sitio.
+                </p>
+              </div>
+
+              <div class="separador">••••</div>
+
+              <p>Como BONUS EXTRA a tomar en cuenta que una plataforma web no consiste en aplicar trucos mágicos; <strong>es coordinar la infraestructura de forma que cada una de estas 5 fases ocurra en milisegundos.</strong></p>
+
+              <!-- CTA del Post -->
+              <footer class="mt-5 cta-post">
+                <p class="h4 font-weight-bold mb-3 text-dark">¿Este tutorial te ha sido útil?</p>
+                <p>Transformo conceptos técnicos en soluciones digitales prácticas.</p>
+                <p>Si tu plataforma se queda atascada en alguna de estas fases, Visita <a href="../index.html#services-section" class="link-blog">Mis Servicios</a> para descubrir cómo puedo ayudarte.</p>
+                <p>¿Conversamos sobre como optimizar tu sitio web?</p>
+              </footer>
+            </article>
+          </div>
+
+          <!-- Contenido lateral derecho y recursos gratuitos  -->
+          <aside class="col-lg-4 mt-5 sidebar bg-light ftco-animate" aria-label="Barra lateral del blog y recursos">
+            <div class="sidebar-box sidebar-scroll-down ftco-animate">
+              <p class="h5 font-weight-bold heading-sidebar">Posts que te puede interesar...</p>
+              <nav aria-label="Artículos relacionados"></nav>
+                <div class="block-21 mb-4 d-flex">
+                  <a class="blog-img mr-4" style="background-image: url(../images/prev_post_4.webp);" href="optimizacion-de-automatizaciones-en-pipedream" aria-label="Leer sobre optimización en Pipedream"></a>
+                  <div class="text">
+                    <p class="heading h3"><a                          href="optimizacion-de-automatizaciones-en-pipedream">Código vs. No-Code: Cómo optimizar un flujo de automatización en Pipedream reduciendo la latencia</a>
+                    </p>
+                    <div class="meta">
+                      <div><i class="fa fa-calendar" aria-hidden="true"></i> 02-06-2026</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="block-21 mb-4 d-flex">
+                  <a class="blog-img mr-4" style="background-image: url(../images/prev_post_2.webp);" href="psicologia-del-color-como-elegir-tonos-correctos-para-tu-pagina-web" aria-label="Leer sobre cómo elegir tonos correctos"></a>
+                  <div class="text">
+                    <p class="heading h3"><a href="psicologia-del-color-como-elegir-tonos-correctos-para-tu-pagina-web">Cómo elegir los tonos correctos para tu página web</a>
+                    </p>
+                    <div class="meta">
+                      <div><i class="fa fa-calendar" aria-hidden="true"></i> 17-05-2026</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="block-21 mb-4 d-flex">
+                  <a class="blog-img mr-4" style="background-image: url(../images/prev_post_1.webp);" href="secreto-para-que-tus-clientes-no-abandonen-tu-web" aria-label="Leer sobre el secreto para que tus clientes no abandonen tu web"></a>
+                  <div class="text">
+                    <p class="heading h3"><a href="secreto-para-que-tus-clientes-no-abandonen-tu-web">El secreto para que tus clientes no abandonen tu web</a>
+                    </p>
+                    <div class="meta">
+                      <div><i class="fa fa-calendar" aria-hidden="true"></i> 15-05-2026</div>
+                    </div>
+                  </div>
+                </div>
+              </nav>
+            </div>
+
+            <!-- Popup de recursos 1 -->
+            <div id="sidebar-recursos" class="mfp-hide resource-popup">
+              <button type="button" class="resource-popup-close mfp-close" aria-label="Cerrar popup">
+                <span class="x-icon close-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </span>
+              </button>
+              <div class="resource-popup-card text-center">
+                <img src="../images/logo.webp" alt="Williboper Dev" class="popup-logo" decoding="async">
+                <p class="h3 heading-sidebar font-weight-bold mb-3 text-dark">Un detalle mientras lees</p>
+                <p><strong>"10 Errores Comunes en WordPress"</strong></p>
+                <p class="mb-4">Aprende a identificarlos rápido y corrige tu sitio sin complicaciones.</p>
+                <div class="text-center">
+                  <a id="btn-download" class="btn btn-primary btn-download" href="javascript:void(0)"
+                    aria-label="Descargar guía gratuita en PDF">
+                    <span class="btn-download-text">📥 Obtener Guía</span>
+                    <output class="spinner-border spinner-border-sm d-none" aria-hidden="true">
+                      <span class="sr-only">Procesando envío...</span>
+                    </output>
+                  </a>
+                  <div class="mt-3 text-muted"><span style="font-size: 0.9rem;">🔒 100% Seguro • Sin spam • PDF</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Popup de recursos 2 - Pasarela -->
+            <div id="popup-recursos" class="mfp-hide resource-popup">
+              <button type="button" class="resource-popup-close mfp-close" aria-label="Cerrar popup">
+                <span class="x-icon close-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                  </svg>
+                </span>
+              </button>
+              <div class="resource-popup-card">
+                <img src="../images/logo.webp" alt="Williboper Dev" class="popup-logo" decoding="async">
+                <div class="resource-popup-grid resource-popup-grid-3">
+                  <div class="resource-popup-col resource-popup-col-1">
+                    <div class="resource-popup-header">
+                      <div class="download-success">
+                        <span class="success-icon">
+                          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#20c997" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin: 0 auto; display: block;" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 12l3 3 5-6"></path>
+                          </svg>
+                        </span>
+                        <p class="pa font-weight-bold text-dark mt-2">Guía descargada</p>
+                        <p>El archivo "10 Errores Comunes en WordPress.pdf" se guardó en tu dispositivo.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="resource-popup-col resource-popup-col-2">
+                    <div class="resource-popup-body">
+                      <p class="pac font-weight-bold text-dark">Apoya el contenido</p>
+                      <p>Si esta guía te fue útil y quieres contribuir, considera una pequeña aportación en PayPal.</p>
+                      <p class="pay font-weight-bold text-dark">¿Cómo funciona?</p>
+                      <div style="justify-items: center;">
+                        <ol class="steps-list-popup">
+                          <li><strong>Elige</strong> el monto que deseas contribuir.</li>
+                          <li><strong>Paga</strong> de forma segura con PayPal.</li>
+                          <li><strong>¡Listo!</strong> Recibe mi agradecimiento.</li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="resource-popup-col resource-popup-col-3">
+                    <div class="resource-popup-actions">
+                      <div id="paypal-container-popup"data-button-id="24U7T9ZCTZK4A" aria-live="polite"></div>
+                      <p class="gratitude-note">Cada aporte cuenta y me ayuda a dedicar más tiempo a crear valor para la comunidad. ¡Gracias por tu apoyo!</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </aside>
+        </div> <!-- .row -->
+      </div> <!-- .container -->
+    </section>
+  </main>
+
+  <footer class="ftco-footer ftco-section">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="footer-align col-md">
+					<div class="ftco-footer-widget mb-4">
+						<a class="navbar-brand" href="../index.html"><img src="../images/logo_footer.webp" alt="Williboper Dev"
+              width="50" 
+              height="50"
+              loading="lazy" 
+              decoding="async"
+              class="navbar-logo">
+            </a>
+						<p>Construyamos la base tecnológica que tu negocio necesita hoy.</p>
+						<p class="font-weight-bold text-white mt-3">Sígueme en redes:</p>
+						<ul class="ftco-footer-social list-unstyled mt-2">
+							<li class="ftco-animate">
+								<a href="https://www.facebook.com/williboperdev" target="_blank" rel="noopener noreferrer">
+									<span class="fab fa-facebook-f" aria-hidden="true"></span>
+									<span class="sr-only">Visitar Facebook de Williboper Dev (se abre en una nueva pestaña)</span>
+								</a>
+							</li>
+							<li class="ftco-animate"><a href="#"><span class="fab fa-instagram"></span></a></li>
+							<li class="ftco-animate">
+								<a href="https://ve.linkedin.com/in/williams-perez-boisselle" target="_blank" rel="noopener noreferrer">
+									<span class="fab fa-linkedin-in" aria-hidden="true"></span>
+									<span class="sr-only">Visitar LinkedIn de Williboper Dev (se abre en una nueva pestaña)</span>
+								</a>
+							</li>
+							<li class="ftco-animate">
+								<a href="https://www.youtube.com/@williboperdev" target="_blank" rel="noopener noreferrer">
+									<span class="fab fa-youtube" aria-hidden="true"></span>
+									<span class="sr-only">Visitar YouTube de Williboper Dev (se abre en una nueva pestaña)</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-align-2 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<p class="ftco-heading-2 font-weight-bold">Servicios</p>
+						<ul class="list-unstyled">
+							<li><a href="../index.html#services-section">Plataformas en WordPress</a></li>
+							<li><a href="../index.html#services-section">Creación de Tiendas Online</a></li>
+							<li><a href="../index.html#services-section">Aplicaciones Web a Medida</a></li>
+							<li><a href="../index.html#services-section">Automatización de Procesos</a></li>
+							<li><a href="../index.html#services-section">Migración y Traslado Web</a></li>
+							<li><a href="../index.html#services-section">Auditoría Técnica y Soporte</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-align-2 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<p class="ftco-heading-2 font-weight-bold">Suscribirse</p>
+						<p>Recibe estrategias de automatización, rendimiento web y tecnología.</p>
+
+						<form class="inline-newsletter" novalidate autocomplete="off">
+							<div class="input-row">
+								<label for="email" class="sr-only">Correo electrónico para suscripción</label>
+								<input type="email" name="email" id="email" placeholder="tu@email.com" required autocomplete="off">
+								<div class="form-group-additional" aria-hidden="true">
+									<label for="username_hp" class="sr-only">Si eres humano, ignora este campo</label>
+									<input type="text" id="username_hp" tabindex="-1" autocomplete="off">
+								</div>
+								<button type="submit" id="formulario" class="sub-btn">
+									<span class="sr-only">Enviar suscripción al newsletter</span>
+									<!-- Icono de carta (SVG inline) -->
+									<svg class="icon-mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+										<path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11zM4.5 6L12 11l7.5-5H4.5zM20 17.5V8.7l-7.1 4.75a1 1 0 0 1-1.02 0L4 8.7v8.8h16z"/>
+									</svg>
+								</button>
+							</div>
+
+							<div class="alerts">
+								<div style="display: none;" id="suscrito" class="alert alert-success" role="alert">Gracias por suscribirte</div>
+								<div style="display: none;" id="errorsuscrito" class="template alert alert-danger" role="alert">Debes ingresar un correo válido!</div>
+							</div>
+
+							<div id="cargadorFooter">
+								<output class="spinner-border text-primary">
+									<span class="sr-only">Procesando suscripción...</span>
+								</output>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p class="font-weight-bold copyright-text">
+						&copy; <span id="year"></span> - Williboper Dev | Código con propósito <i class="fa fa-heart" aria-hidden="true"></i>
+
+						<script>
+						document.getElementById('year').textContent = new Date().getFullYear();
+						</script> 
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+  <!-- loader -->
+	<div id="loader">
+		<div class="code-loader">
+			<span>{</span><span>}</span>
+		</div>
+	</div>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.waypoints.min.js"></script>
+  <script src="../js/jquery.stellar.min.js"></script>
+  <script src="../js/jquery.magnific-popup.min.js"></script>
+  <script src="../js/scrollax.min.js"></script>
+  <script src="../js/main.js"></script>
+
+  <!-- Botón flotante de WhatsApp -->
+	<a id="btn-whatsapp" class="whatsapp-float" data-message="Hola Williams, leí tu artículo sobre Anatomía de una Carga Web y me gustaría consultarte sobre un proyecto." target="_blank" rel="noopener noreferrer">
+		<i class="fab fa-whatsapp" aria-hidden="true"></i>
+		<span class="sr-only">Contactar por WhatsApp (se abre en una nueva pestaña)</span>
+	</a>
+
+  <!-- Botón de PayPal se muestre en el popup de recursos -->
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAATg1Dsm5_qW1dGLA0hHx4ztcLsusyeUrnx6c1I5h-bV9gs3w5zgrvlWXXA5Ibut3oGf7dDDawqMMhM1s&components=hosted-buttons&disable-funding=venmo&currency=USD"
+    defer></script>
+
+</body>
+</html>

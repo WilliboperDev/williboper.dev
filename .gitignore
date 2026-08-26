@@ -1,0 +1,30 @@
+# local env files
+.env
+.env.*
+!.env.example
+
+# dependencies
+/node_modules
+/vendor
+
+# production
+/build
+
+# Archivos de IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# backups y archivos locales no necesarios en Git
+utilities/
+*.bak
+*.tmp
+*.orig
+
+# vercel
+.vercel

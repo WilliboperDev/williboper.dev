@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Williboper Dev - Soluciones Web y Automatización</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Diseño plataformas robustas que automatizan tus operaciones y soluciones a medida. Mira mi portafolio e impulsa tu negocio.">
+	<meta name="author" content="Ing. Williams Pérez">
+	<meta name="robots" content="index, follow">
+
+	<!-- SEO: Enlace Canónico -->
+	<link rel="canonical" href="https://williboper.dev">
+
+	<!--- Open Graph (redes sociales) -->
+	<meta property="og:url" content="https://williboper.dev">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Williboper Dev | Soluciones Web y Automatización">
+	<meta property="og:description" content="Diseño plataformas robustas que automatizan tus operaciones y soluciones a medida. Mira mi portafolio e impulsa tu negocio.">
+	<meta property="og:image" content="https://williboper.dev/images/og-image.png">
+	<meta property="og:image:width" content="900">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:type" content="image/png">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Williboper Dev | Soluciones Web y Automatización">
+	<meta name="twitter:description" content="Diseño plataformas robustas que automatizan tus operaciones y soluciones a medida. Mira mi portafolio e impulsa tu negocio.">
+	<meta name="twitter:image" content="https://williboper.dev/images/og-image.png">
+	<meta name="twitter:image:width" content="900">
+	<meta name="twitter:image:height" content="630">
+	<meta name="twitter:image:type" content="image/png">
+
+	<!-- Precarga imagen del fondo -->
+	<link rel="preload" href="images/hero-1.webp" as="image" type="image/webp">
+	<link rel="preload" href="images/hero-2.webp" as="image" type="image/webp">
+
+	<!-- Fuentes e Iconos Externos -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+	<noscript>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+	</noscript>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"media="print"onload="this.media='all'"integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="crossorigin="anonymous"referrerpolicy="no-referrer">
+	<noscript>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="crossorigin="anonymous"referrerpolicy="no-referrer">
+	</noscript>
+
+	<!-- Estilos del Sitio -->
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="css/flaticon.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/MyPortfolio/icon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/MyPortfolio/icon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/MyPortfolio/icon/favicon-16x16.png">
+	<link rel="manifest" href="/MyPortfolio/icon/site.webmanifest">
+
+	<!-- JSON-LD para SEO del sitio -->
+	<script type="application/ld+json">
+	{
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+		"@type": "WebSite",
+		"@id": "https://williboper.dev/#website",
+		"url": "https://williboper.dev/",
+		"name": "Williboper Dev - Soluciones Web y Automatización",
+		"description": "Diseño plataformas robustas que automatizan tus operaciones y soluciones a medida. Mira mi portafolio e impulsa tu negocio.",
+		"inLanguage": "es",
+		"publisher": {
+			"@id": "https://williboper.dev/#person"
+		},
+		"potentialAction": [
+			{
+			"@type": "SearchAction",
+			"target": {
+				"@type": "EntryPoint",
+				"urlTemplate": "https://williboper.dev/?s={search_term_string}"
+			},
+			"query-input": "required name=search_term_string"
+			}
+		]
+		},
+		{
+		"@type": "WebPage",
+		"@id": "https://williboper.dev/#webpage",
+		"url": "https://williboper.dev/",
+		"name": "Williboper Dev - Soluciones Web y Automatización",
+		"description": "Diseño plataformas robustas que automatizan tus operaciones y soluciones a medida. Mira mi portafolio e impulsa tu negocio.",
+		"inLanguage": "es",
+		"isPartOf": {
+			"@id": "https://williboper.dev/#website"
+		},
+		"about": {
+			"@id": "https://williboper.dev/#person"
+		},
+		"primaryImageOfPage": {
+			"@type": "ImageObject",
+			"url": "https://williboper.dev/images/og-image.png"
+		},
+		"datePublished": "2026-08-01",
+		"dateModified": "2026-08-11"
+		},
+		{
+		"@type": "Person",
+		"@id": "https://williboper.dev/#person",
+		"name": "Ing. Williams Pérez",
+		"alternateName": "Williboper Dev",
+		"url": "https://williboper.dev/",
+		"jobTitle": "Soluciones Web y Automatización",
+		"image": {
+			"@type": "ImageObject",
+			"url": "https://williboper.dev/images/logo.webp"
+		},
+		"sameAs": [
+			"https://github.com/williboperDev",
+			"https://linkedin.com/in/williams-perez-boisselle"
+		]
+		}
+	]
+	}
+	</script>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+	<!-- CABECERA GLOBAL DE LA PÁGINA -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar" aria-label="Navegación principal">
+            <div class="container">
+                <a class="navbar-brand" href="/myportfolio/">
+                    <img src="images/logo.webp" alt="Logo de Williboper Dev" class="navbar-logo logo-default"
+                    width="50"
+                    height="50"
+                    decoding="async"
+                    fetchpriority="high">
+                    <img src="images/logo_footer.webp" alt="Logo - Williboper Dev" class="navbar-logo logo-scrolled"
+                    width="50"
+                    height="50"
+                    decoding="async"
+                    fetchpriority="low">
+                </a>
+                <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false"
+                aria-label="Alternar menú de navegación">
+                    <span class="sr-only">Menú de navegación</span>
+                    <span class="oi toggle-menu" aria-hidden="true"></span>
+                    <span class="oi toggle-menu" aria-hidden="true"></span>
+                    <span class="oi toggle-menu" aria-hidden="true"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav nav ml-auto">
+                        <li class="nav-item"><a href="#home-section" class="nav-link"><span>Inicio</span></a></li>
+                        <li class="nav-item"><a href="#services-section" class="nav-link"><span>Servicios</span></a></li>
+                        <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Portafolio</span></a></li>
+                        <li class="nav-item"><a href="#blog-section" class="nav-link"><span>Blog</span></a></li>
+                        <li class="nav-item"><a href="#about-section" class="nav-link"><span>Sobre Mi</span></a></li>
+                        <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contacto</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- NÚCLEO DE CONTENIDO PRINCIPAL -->
+    <main>
+
+		<!-- SECCIÓN: PRESENTACIÓN PRINCIPAL -->
+        <section id="home-section" class="hero">
+            <div class="home-slider owl-carousel">
+
+                <!-- Slide 1: -->
+				<div class="slider-item">
+                    <div class="overlay"></div>
+                    <div class="container-fluid px-md-0">
+                        <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+                            <div class="one-third order-md-last img img-index">
+                                <div class="overlay"></div>
+                                <div class="overlay-1"></div>
+                            </div>
+                            <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax="properties: { translateY: '70%' }">
+                                <div class="text">
+                                    <span class="subheading">¡Hola! Soy Williams Pérez</span>
+                                    <h1 class="mb-4 mt-3">Ingeniero de <span>Soluciones Web</span></h1>
+                                    <p><a class="btn btn-primary btn-outline-primary" href="#contact-section">Agendar consultoría</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+				<!-- Slide 2: -->
+                <div class="slider-item">
+                    <div class="overlay"></div>
+                    <div class="container-fluid px-md-0">
+                        <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
+                            <div class="one-third order-md-last img img-index-2">
+                                <div class="overlay"></div>
+                                <div class="overlay-1"></div>
+                            </div>
+                            <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax="properties: { translateY: '70%' }">
+                                <div class="text">
+                                    <span class="subheading">Eficiencia y Escalabilidad</span>
+                                    <h2 class="h1 mb-4 mt-3">Automatizo tus <span>procesos</span> en la Web</h2>
+                                    <p><a href="#projects-section" class="btn btn-primary btn-outline-primary">Ver portafolio</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<!-- SECCIÓN: SERVICIOS ESPECIALIZADOS -->
+        <section class="ftco-section bg-light" id="services-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 heading-section text-center ftco-animate mb-6 pb-5">
+                        <span class="subheading">Servicios</span>
+                        <h2 class="mb-4">Soluciones Web y Automatización</h2>
+                        <p>Estructuro y optimizo plataformas digitales para garantizar el crecimiento e integración de tu negocio.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
+                            <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-computer" aria-hidden="true"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Plataformas en WordPress</h3>
+                                <p>Desarrollo sitios web corporativos y marcas personales utilizando WordPress como gestor de contenidos autogestionable, adaptado 100% a tus necesidades.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
+                            <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-web-programming" aria-hidden="true"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Creación de Tiendas Online</h3>
+                                <p>Configuración de pasarelas de pago, control de inventarios e integraciones. Diseños estables para ofrecer una experiencia de compra segura.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
+                            <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-app-development" aria-hidden="true"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Aplicaciones Web a Medida</h3>
+                                <p>Cuando las plantillas o soluciones genéricas limitan tu crecimiento, desarrollo sistemas únicos utilizando la tecnología adecuada para resolver los retos específicos de tu lógica de negocio.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
+                            <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-branding" aria-hidden="true"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Automatización de Procesos </h3>
+                                <p>Conexión e integración de herramientas y flujos de trabajo del día a día (CRMs, Google Sheets, formularios, APIs, etc.) para reducir costes operativos y erradicar tareas manuales.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
+                            <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-vector" aria-hidden="true"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Migración y traslado web</h3>
+                                <p>Traslado de plataformas hacia entornos de hosting e infraestructura optimizados, garantizando cero pérdida de datos, resguardo del posicionamiento SEO y máxima estabilidad en el proceso.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="media block-6 services d-block bg-white rounded-lg shadow ftco-animate">
+                            <div class="icon shadow d-flex align-items-center justify-content-center"><span class="flaticon-zoom" aria-hidden="true"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Auditoría Técnica, WPO y Soporte</h3>
+                                <p>Diagnóstico profundo de velocidad (Core Web Vitals) y seguridad. Optimizo el rendimiento para cargas instantáneas e implemento monitoreo continuo para mantener tu plataforma protegida.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<!-- SECCIÓN: PORTAFOLIO -->
+        <section class="ftco-section ftco-project" id="projects-section">
+            <div class="container">
+                <div class="row justify-content-center pb-3">
+                    <div class="col-md-10 heading-section text-center ftco-animate">
+                        <span class="subheading">Portafolio</span>
+                        <h2 class="mb-4">Casos de éxito </h2>
+                        <!--<p>Proyectos a la medida donde la automatización y la solución web crean resultados reales.</p>-->
+						<p>Actualmente estoy trabajando en nuevos proyectos desafiantes que pronto estarán disponibles.</p>
+                    </div>
+                </div>
+
+                <!-- Filtrado de Proyectos (Componente modular) -->
+                <!--<div class="sidebar-box ftco-animate text-center mb-5">
+                    <div class="project-filter">
+                        <a href="#" data-filter="all" class="active">General</a>
+                        <a href="#" data-filter="web">Mejoras Web</a>
+                        <a href="#" data-filter="wordpress">WordPress</a>
+                        <a href="#" data-filter="videos">Tips youtube</a>
+                    </div>
+                </div-->
+				
+				<!-- Proyecto 1 -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project prox img shadow ftco-animate d-flex justify-content-center align-items-center" data-category="videos">
+                            <img src="images/proyecto-1.webp"
+                                alt="Miniatura de Automatización Digital"
+                                class="img-fluid project-bg"
+                                loading="lazy"
+                                decoding="async"
+                                width="480" height="360">
+                            <div class="overlay"></div>
+                            <div class="text text-center">
+                                <span class="badge badge-warning mb-2">Próximamente</span>
+                            </div>
+                            <div class="project-hover-detail">
+                                <h3>Automatización Digital</h3>
+                                <div class="project-tags">
+                                    <span class="tag">Node.js</span>
+                                    <span class="tag">APIs</span>
+                                    <span class="tag">SEO</span>
+                                </div>
+                                <p class="small text-muted">Optimización y conversión de flujos de contenido multimedia en activos digitales.</p>
+                                <a href="#contact-section" class="btn btn-sm btn-primary project-link" >Cotizar solución similar</a>
+                                <!--<a class="popup-youtube" href="https://www.youtube.com/watch?v=ID_DEL_VIDEO">Ver video</a>-->
+                            </div>
+                        </div>
+                    </div>
+
+					<!-- Proyecto 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project prox img shadow ftco-animate d-flex justify-content-center align-items-center" data-category="wordpress">
+                            <img src="images/proyecto-2.webp"
+                                alt="Miniatura de Auditoría & Core Web Vitals"
+                                class="img-fluid project-bg"
+                                loading="lazy"
+                                decoding="async"
+                                width="480" height="360">
+                            <div class="overlay"></div>
+                            <div class="text text-center">
+                                <span class="badge badge-warning mb-2">Próximamente</span>
+                            </div>
+                            <div class="project-hover-detail">
+                                <h3>Auditoría & Optimización de Core Web Vitals</h3>
+                                <div class="project-tags">
+                                    <span class="tag">WPO</span>
+                                    <span class="tag">JavaScript</span>
+                                    <span class="tag">Lighthouse</span>
+                                </div>
+                                <p class="small text-muted">Reestructuración técnica de activos web para mejorar la carga y la experiencia del usuario.</p>
+                                <a href="#contact-section" class="btn btn-sm btn-primary project-link">Solicitar auditoría web</a>
+                            </div>
+                        </div>
+                    </div>
+
+					<!-- Proyecto 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="project prox img shadow ftco-animate d-flex justify-content-center align-items-center" data-category="wordpress">
+                        <img src="images/proyecto-3.webp"
+                                alt="Miniatura de Plataforma E-commerce con Pasarela de Ventas"
+                                class="img-fluid project-bg"
+                                loading="lazy"
+                                decoding="async"
+                                width="480" height="360">
+                            <div class="overlay"></div>
+                            <div class="text text-center">
+                                <span class="badge badge-warning mb-2">Próximamente</span>
+                            </div>
+                            <div class="project-hover-detail">
+                                <h3>Plataforma E-commerce con Pasarela de Ventas</h3>
+                                <div class="project-tags">
+                                    <span class="tag">WooCommerce</span>
+                                    <span class="tag">E-commerce</span>
+									<span class="tag">APIs</span>
+                                </div>
+                                <p class="small text-muted">Tienda virtual autogestionable de pagos y gestión de catálogo.</p>
+                                <a href="#contact-section" class="btn btn-sm btn-primary project-link">Cotizar proyecto similar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<!-- SECCIÓN: CALL TO ACTION -->
+        <section class="ftco-hireme">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-md-8 col-lg-8 d-flex align-items-center">
+                        <div class="w-100 py-4">
+                            <h2>¿Listo para optimizar o escalar tu proyecto web?</h2>
+                            <p>Transformemos tu visión en una herramienta digital que impulse tu crecimiento.</p>
+                            <p class="mb-0 mt-4">
+								<a href="#contact-section" class="btn btn-white py-3 px-4">Iniciar conversación</a>
+							</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 d-flex align-items-end">
+                        <img src="images/img-cta.webp" 		class="img-fluid shadow-sm img-mask"
+                        alt="Williboper Dev - Ingeniero de Soluciones Web en Venezuela"
+                        loading="lazy"
+                        decoding="async"
+                        width="896"
+                        height="1152">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+		<!-- SECCIÓN: BLOG -->
+        <section class="ftco-section bg-light" id="blog-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-5">
+                    <div class="col-md-10 heading-section text-center ftco-animate">
+                        <span class="subheading">Blog</span>
+                        <h2 class="mb-4">Guías y recursos digitales</h2>
+                        <p>Artículos que te ayudan a entender los pilares lógicos y técnicos detrás de una plataforma exitosa.</p>
+                    </div>
+                </div>
+
+                <div class="row d-flex">
+                    <!-- Artículo 1: Retención y WPO -->
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <article class="blog-entry justify-content-end w-100">
+                            <a href="blog/secreto-para-que-tus-clientes-no-abandonen-tu-web.html" class="block-20">
+                                <img src="images/prev_post_1.webp"
+                                    alt="Miniatura del artículo: El secreto para que tus clientes no abandonen tu web"
+                                    loading="lazy"
+                                    decoding="async"
+                                    width="800" height="600">
+                            </a>
+                            <div class="text mt-4 float-right d-block">
+                                <div class="d-flex align-items-center mb-3 meta">
+                                    <p class="mb-0">
+                                        <span class="mr-3"><i class="fa fa-calendar mr-1" aria-hidden="true"></i>15-05-2026</span>
+                                        <span><i class="fa fa-user mr-1" aria-hidden="true"></i>Ing. Williams Pérez</span>
+                                    </p>
+                                </div>
+                                <h3 class="heading"><a href="blog/secreto-para-que-tus-clientes-no-abandonen-tu-web.html">El secreto para que tus clientes no abandonen tu web</a></h3>
+                                <p>Consejos prácticos para reducir el abandono y mejorar la retención....</p>
+                                <span class="mr-2">
+									<a href="blog/secreto-para-que-tus-clientes-no-abandonen-tu-web.html">Leer más <span class="sr-only">sobre el secreto para retener clientes</span></a>
+									<span aria-hidden="true">&gt;&gt;&gt;</span>
+								</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Artículo 2: Psicología del Color -->
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <article class="blog-entry justify-content-end w-100">
+                            <a href="blog/psicologia-del-color-como-elegir-tonos-correctos-para-tu-pagina-web.html" class="block-20">
+                                <img src="images/prev_post_2.webp"
+                                alt="Miniatura del artículo: Cómo elegir los tonos correctos para tu web"
+                                loading="lazy"
+                                decoding="async"
+                                width="800" height="600">
+                            </a>
+                            <div class="text mt-4 float-right d-block">
+                                <div class="d-flex align-items-center mb-3 meta">
+                                    <p class="mb-0">
+                                        <span class="mr-3"><i class="fa fa-calendar mr-1" aria-hidden="true"></i>17-05-2026</span>
+                                        <span><i class="fa fa-user mr-1" aria-hidden="true"></i>Ing. Williams Pérez</span>
+                                    </p>
+                                </div>
+                                <h3 class="heading"><a href="blog/psicologia-del-color-como-elegir-tonos-correctos-para-tu-pagina-web.html">Psicología del color: Cómo elegir los tonos correctos para tu web</a></h3>
+                                <p>Cómo elegir colores que transmitan confianza y conversión....</p>
+                                <span class="mr-2">
+									<a href="blog/psicologia-del-color-como-elegir-tonos-correctos-para-tu-pagina-web.html">Leer más <span class="sr-only">sobre la psicología del color</span></a>
+									<span aria-hidden="true">&gt;&gt;&gt;</span>
+								</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Artículo 3: Rendimiento y Core Web Vitals -->
+                    <div class="col-md-4 d-flex ftco-animate">
+                        <article class="blog-entry justify-content-end w-100">
+                            <a href="blog/anatomia-de-una-carga-web-5-segundos-donde-pierdes-o-ganas-clientes.html" class="block-20">
+                                <img src="images/prev_post_3.webp"
+                                alt="Miniatura del artículo: La anatomía de una carga web"
+                                loading="lazy"
+                                decoding="async"
+                                width="800" height="600">
+                            </a>
+                            <div class="text mt-4 float-right d-block">
+                                <div class="d-flex align-items-center mb-3 meta">
+                                    <p class="mb-0">
+                                        <span class="mr-3"><i class="fa fa-calendar mr-1" aria-hidden="true"></i>20-05-2026</span>
+                                        <span><i class="fa fa-user mr-1" aria-hidden="true"></i>Ing. Williams Pérez</span>
+                                    </p>
+                                </div>
+                                <h3 class="heading"><a href="blog/anatomia-de-una-carga-web-5-segundos-donde-pierdes-o-ganas-clientes.html">La anatomía de una carga web: Los 5 segundos críticos donde pierdes o ganas clientes</a></h3>
+                                <p>Qué pasa en esos primeros 5 segundos y cómo mejorarlos....</p>
+                                <span class="mr-2">
+									<a href="blog/anatomia-de-una-carga-web-5-segundos-donde-pierdes-o-ganas-clientes.html">Leer más <span class="sr-only">sobre la anatomía de una carga web</span></a>
+									<span aria-hidden="true">&gt;&gt;&gt;</span>
+								</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Artículo 4: Optimización de Automatizaciones en Pipedream -->
+                    <div class="col-md-4 d-flex ftco-animate mt-4">
+                        <article class="blog-entry justify-content-end w-100">
+                            <a href="blog/optimizacion-de-automatizaciones-en-pipedream.html" class="block-20">
+                                <img src="images/prev_post_4.webp"
+                                alt="Miniatura del artículo: Optimizar un flujo de automatización en Pipedream"
+                                loading="lazy"
+                                decoding="async"
+                                width="800" height="600">
+                            </a>
+                            <div class="text mt-4 float-right d-block">
+                                <div class="d-flex align-items-center mb-3 meta">
+                                    <p class="mb-0">
+                                        <span>
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            <span class="mr-2">02-06-2026</span>
+                                        </span>
+                                        <span>
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <span class="mr-2">Ing. Williams Pérez</span>
+                                        </span>
+                                    </p>
+                                </div>
+                                <h3 class="heading"><a href="blog/optimizacion-de-automatizaciones-en-pipedream.html">Código vs. No-Code: Cómo optimizar un flujo de automatización en Pipedream reduciendo la latencia</a></h3>
+                                <p>Descubre cómo crear arquitecturas de backend con Node.js en Pipedream...</p>
+                                <span class="mr-2">
+									<a href="blog/optimizacion-de-automatizaciones-en-pipedream.html">Leer más <span class="sr-only">sobre cómo optimizar un flujo de automatizaciones en Pipedream</span></a> 
+									<span aria-hidden="true">&gt;&gt;&gt;</span>
+								</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section> 
+
+		<!-- SECCIÓN: SOBRE MÍ -->
+		<section class="ftco-about ftco-section ftco-no-pt ftco-no-pb" id="about-section">
+            <div class="container">
+                <div class="row d-flex no-gutters">
+                    <div class="col-md-6 col-lg-5 d-flex">
+                        <div class="img-about img d-flex align-items-stretch">
+                            <div class="overlay"></div>
+                            <img src="images/img-front.webp" alt="construccion y automatizacion de procesos por Williboper Dev" class="img-front"
+                            loading="lazy"
+                            decoding="async"
+                            width="547" height="456">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-7 pl-md-4 pl-lg-5 py-5">
+                        <div class="py-md-5">
+                            <div class="row justify-content-start pb-3">
+                                <div class="col-md-12 heading-section ftco-animate">
+                                    <span class="subheading text-center">Te cuento algo de mí...</span>
+                                    <h2 class="mb-4 text-center" style="font-size: 34px">Más que código, estrategia digital</h2>
+                                    <p>Me dedico a impulsar negocios a través de la tecnología mediante dos pilares fundamentales:</p>
+                                    <ul class="list-unstyled mb-4">
+                                        <li class="mb-2"><i class="fa fa-check text-primary mr-2" aria-hidden="true"></i><strong>Plataformas optimizadas:</strong> Transformo desafíos en sistemas robustos preparados para la conversión.</li>
+                                        <li class="mb-2"><i class="fa fa-check text-primary mr-2" aria-hidden="true"></i><strong>Automatización inteligente:</strong> Creo soluciones a medida que optimizan tus flujos de trabajo y escalan con tu negocio.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <p><a href="sobre-mi.html" class="btn btn-primary btn-outline-primary">Conoce mi metodología completa</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       	<!-- SECCIÓN: PREGUNTAS FRECUENTES (FAQs) -->
+		<section class="ftco-section FAQS-section bg-primary">
+			<div class="container">
+				<div class="row justify-content-center pb-5">
+					<div class="col-md-10 heading-section heading-section-white text-center ftco-animate">
+						<span class="subheading">Preguntas frecuentes</span>
+						<h2 class="mb-4">¿Tienes dudas?</h2>
+						<p>Todo lo que necesitas saber antes de consolidar tu infraestructura digital</p>
+					</div>
+				</div>
+				<div class="row ftco-animate">
+					<div class="col-md-12">
+						<!-- ID para controlar el cierre automático de las demás preguntas -->
+						<div class="carousel-FAQS owl-carousel" id="faq-accordion">
+
+							<!-- Pregunta 1 -->
+							<div class="item">
+								<div class="FAQS-wrap py-4">
+									<div class="text">
+										<span class="fa fa-question-circle" aria-hidden="true"></span>
+										<div class="faq-trigger collapsed" data-toggle="collapse" data-target="#faq-1" data-parent="#faq-accordion" aria-expanded="false" aria-controls="faq-1">
+											<h3 class="h5 mb-0 pl-5 question-title">¿Cuánto tiempo toma desarrollar una plataforma web?</h3>
+											<span class="fa fa-chevron-down faq-icon ml-auto"></span>
+										</div>
+										<div id="faq-1" class="collapse" data-parent="#faq-accordion">
+											<p class="mb-4 pr-3 pt-3">El plazo depende de los requerimientos del sistema. Una estructura estándar puede estar lista entre 1 y 2 semanas, mientras que los desarrollos a la medida con integraciones o automatizaciones complejas conllevan una planificación detallada basada en objetivos.</p>
+										</div>
+									</div>  
+								</div>
+							</div>
+
+							<!-- Pregunta 2 -->
+							<div class="item">
+								<div class="FAQS-wrap py-4">
+									<div class="text">
+										<span class="fa fa-question-circle" aria-hidden="true"></span>
+										<div class="faq-trigger collapsed" data-toggle="collapse" data-target="#faq-2" data-parent="#faq-accordion" aria-expanded="false" aria-controls="faq-2">
+											<h3 class="h5 mb-0 pl-5 question-title">¿Te encargas de la gestión del hosting y dominio?</h3>
+											<span class="fa fa-chevron-down faq-icon ml-auto"></span>
+										</div>
+										<div id="faq-2" class="collapse" data-parent="#faq-accordion">
+											<p class="mb-4 pr-3 pt-3">Sí. Si no dispones de un proveedor de alojamiento, puedo asesorarte para seleccionar entornos de hosting optimizados para alta velocidad o incluir la configuración de la infraestructura técnica dentro de la propuesta de tu proyecto.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Pregunta 3 -->
+							<div class="item">
+								<div class="FAQS-wrap py-4">
+									<div class="text">
+										<span class="fa fa-question-circle" aria-hidden="true"></span>
+										<div class="faq-trigger collapsed" data-toggle="collapse" data-target="#faq-3" data-parent="#faq-accordion" aria-expanded="false" aria-controls="faq-3">
+											<h3 class="h5 mb-0 pl-5 question-title">¿Cómo pueden las automatizaciones ayudar a mi negocio?</h3>
+											<span class="fa fa-chevron-down faq-icon ml-auto"></span>
+										</div>
+										<div id="faq-3" class="collapse" data-parent="#faq-accordion">
+											<p class="mb-4 pr-3 pt-3">Conectando tus herramientas diarias (como formularios web, CRMs y plataformas de mensajería) para eliminar tareas repetitivas. Esto reduce errores humanos, ahorra horas de trabajo semanales y te permite responder a tus clientes potenciales de forma instantánea.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Pregunta 4 -->
+							<div class="item">
+								<div class="FAQS-wrap py-4">
+									<div class="text">
+										<span class="fa fa-question-circle" aria-hidden="true"></span>
+										<div class="faq-trigger collapsed" data-toggle="collapse" data-target="#faq-4" data-parent="#faq-accordion" aria-expanded="false" aria-controls="faq-4">
+											<h3 class="h5 mb-0 pl-5 question-title">¿Con qué frecuencia se deben optimizar y auditar los sistemas?</h3>
+											<span class="fa fa-chevron-down faq-icon ml-auto"></span>
+										</div>
+										<div id="faq-4" class="collapse" data-parent="#faq-accordion">
+											<p class="mb-4 pr-3 pt-3">La monitorización debe ser continua, complementada con un mantenimiento profundo mensual. De esta forma aseguro de que el código, la base de datos y la velocidad de carga (Core Web Vitals) permanezcan en su punto óptimo de conversión las 24 horas.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Pregunta 5 -->
+							<div class="item">
+								<div class="FAQS-wrap py-4">
+									<div class="text">
+										<span class="fa fa-question-circle" aria-hidden="true"></span>
+										<div class="faq-trigger collapsed" data-toggle="collapse" data-target="#faq-5" data-parent="#faq-accordion" aria-expanded="false" aria-controls="faq-5">
+											<h3 class="h5 mb-0 pl-5 question-title">¿Qué sucede si mi sitio web actual presenta fallos críticos?</h3>
+											<span class="fa fa-chevron-down faq-icon ml-auto"></span>
+										</div>
+										<div id="faq-5" class="collapse" data-parent="#faq-accordion">
+											<p class="mb-4 pr-3 pt-3">Ejecuto un diagnóstico técnico profundo para identificar la raíz de los errores (incompatibilidades, inyecciones de código o fallos de servidor) y aplico soluciones sólidas que no solo corrigen el problema actual, sino que previenen fallos futuros.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Pregunta 6 -->
+							<div class="item">
+								<div class="FAQS-wrap py-4">
+									<div class="text">
+										<span class="fa fa-question-circle" aria-hidden="true"></span>
+										<div class="faq-trigger collapsed" data-toggle="collapse" data-target="#faq-6" data-parent="#faq-accordion" aria-expanded="false" aria-controls="faq-6">
+											<h3 class="h5 mb-0 pl-5 question-title">¿Cómo es el proceso para cotizar un proyecto a la medida?</h3>
+											<span class="fa fa-chevron-down faq-icon ml-auto"></span>
+										</div>
+										<div id="faq-6" class="collapse" data-parent="#faq-accordion">
+											<p class="mb-4 pr-3 pt-3">Puedes iniciar el contacto a través del formulario web o directamente por WhatsApp. Coordinaremos una evaluación inicial de tus necesidades operativas para estructurar una propuesta técnica y económica completamente personalizada.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- SECCIÓN: CONTACTO Y MAPA -->
+        <section class="ftco-section contact-section bg-light" id="contact-section">
+            <div class="container">
+                <div class="row justify-content-center mb-5 pb-3">
+                    <div class="col-md-10 heading-section text-center ftco-animate">
+                        <span class="subheading">Hagamos equipo</span>
+                        <h2 class="mb-4">¿Cómo puedo ayudarte?</h2>
+                        <p>Escríbeme y cuéntame sobre las necesidades o procesos de tu negocio.</p>
+                    </div>
+                </div>
+
+                <div class="row block-9 ftco-animate">
+                    <div class="col-md-12">
+                        <form id="contactForm" class="bg-light p-4 p-md-6 contact-form" novalidate autocomplete="off">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="nombre_input" class="sr-only">Tu nombre completo</label>
+                                        <input type="text" id="nombre_input"
+                                        name="nombre" class="form-control"
+                                        required placeholder="Tu nombre" minlength="2" maxlength="100" autocomplete="name">
+                                        <div class="invalid-feedback">Por favor ingresa tu nombre</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="email_input" class="sr-only">Tu correo electrónico</label>
+                                        <input type="email" id="email_input" name="_replyto" class="form-control"
+                                        required placeholder="tu@email.com" autocomplete="email">
+                                        <div class="invalid-feedback">Ingresa un email válido</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="telefono_input" class="sr-only">Tu número de teléfono o WhatsApp</label>
+                                        <input type="tel" inputmode="tel" id="telefono_input" name="telefono"
+                                        class="form-control"
+                                        required placeholder="+58 424-123-4567" pattern="[0-9\+\s\(\)\-]{7,20}" autocomplete="tel">
+                                        <div class="invalid-feedback">Formato de teléfono inválido</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="mensaje_textarea" class="sr-only">Detalles de tu proyecto, problemas a resolver o procesos a automatizar</label>
+                                        <textarea id="mensaje_textarea" name="mensaje" cols="30" rows="7" class="form-control"
+                                        required placeholder="Háblame de tu proyecto, o que buscas automatizar..." minlength="10" maxlength="2000"></textarea>
+                                        <div class="invalid-feedback">El mensaje debe tener al menos 10 caracteres</div>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="_subject" value="Nuevo mensaje desde el formulario de contacto">
+                                <div class="form-group-additional" aria-hidden="true" style="display: none;">
+                                    <label for="contacto_hp" class="sr-only">Si eres humano, deja este campo en blanco</label>
+                                    <input type="text" name="direccion" id="contacto_hp" tabindex="-1" autocomplete="off">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <button type="submit"
+                                        class="btn btn-primary py-3 px-5 btn-enviar" id="submitBtn">
+                                            <span class="btn-text">Enviar Solicitud</span>
+                                            <output class="spinner-border spinner-border-sm d-none" aria-hidden="true">
+                                                <span class="sr-only">Procesando envío...</span>
+                                            </output>
+                                        </button>
+                                        <span class="privacy-text">
+                                            <i class="fa fa-lock" aria-hidden="true"></i> Tus datos están seguros. No los compartiré con terceros.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mensajes de estado -->
+                            <output id="alertContainer" class="mt-3"></output>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Columna de Ubicación y Mapa -->
+                <div class="row ftco-animate">
+                    <div class="col-12">
+                        <div class="map-section">
+                            <div class="map-header">
+                                <h2><i class="fa fa-map-marker" aria-hidden="true"></i> Ubicación</h2>
+                                <p>Consultoría y desarrollo remoto a nivel internacional, con base en Caracas, Venezuela.</p>
+                            </div>
+                            <div class="map-container">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125555.7671759082!2d-66.96040582531061!3d10.468361226868516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2a58adcd824873%3A0xa2cfbf2c617b075e!2sCaracas%2C%20Distrito%20Capital!5e0!3m2!1ses!2sve!4v1700000000000!5m2!1ses!2sve"
+                                    width="100%"
+                                    height="400"
+                                    style="border:0;display:block;"
+                                    allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Ubicación de servicios - Caracas, Venezuela">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main> 
+
+	<!-- PIE DE PÁGINA GLOBAL -->
+	<footer class="ftco-footer">
+		<div class="container">
+			<div class="row mb-5">
+				<div class="footer-align col-md">
+					<div class="ftco-footer-widget mb-4">
+						<a class="navbar-brand" href="/myportfolio/"><img src="images/logo_footer.webp" alt="Williboper Dev"
+						width="50" 
+     					height="50"
+						loading="lazy" 
+						decoding="async"
+						class="navbar-logo"></a>
+						<p>Construyamos la base tecnológica que tu negocio necesita hoy.</p>
+						<p class="font-weight-bold text-white mt-3">Sígueme en redes:</p>
+						<ul class="ftco-footer-social list-unstyled mt-2">
+							<li class="ftco-animate">
+								<a href="https://www.facebook.com/williboperdev" target="_blank" rel="noopener noreferrer">
+									<span class="fab fa-facebook-f" aria-hidden="true"></span>
+									<span class="sr-only">Visitar Facebook de Williboper Dev (se abre en una nueva pestaña)</span>
+								</a>
+							</li>
+							<li class="ftco-animate"><a href="#"><span class="fab fa-instagram"></span></a></li>
+							<li class="ftco-animate">
+								<a href="https://ve.linkedin.com/in/williams-perez-boisselle" target="_blank" rel="noopener noreferrer">
+									<span class="fab fa-linkedin-in" aria-hidden="true"></span>
+									<span class="sr-only">Visitar LinkedIn de Williboper Dev (se abre en una nueva pestaña)</span>
+								</a>
+							</li>
+							<li class="ftco-animate">
+								<a href="https://www.youtube.com/@williboperdev" target="_blank" rel="noopener noreferrer">
+									<span class="fab fa-youtube" aria-hidden="true"></span>
+									<span class="sr-only">Visitar YouTube de Williboper Dev (se abre en una nueva pestaña)</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-align-2 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<p class="ftco-heading-2 font-weight-bold">Servicios</p>
+						<ul class="list-unstyled">
+							<li><a href="index.html#services-section">Plataformas en WordPress</a></li>
+							<li><a href="index.html#services-section">Creación de Tiendas Online</a></li>
+							<li><a href="index.html#services-section">Aplicaciones Web a Medida</a></li>
+							<li><a href="index.html#services-section">Automatización de Procesos</a></li>
+							<li><a href="index.html#services-section">Migración y Traslado Web</a></li>
+							<li><a href="index.html#services-section">Auditoría Técnica y Soporte</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="footer-align-2 col-md">
+					<div class="ftco-footer-widget mb-4">
+						<p class="ftco-heading-2 font-weight-bold">Suscribirse</p>
+						<p>Recibe estrategias de automatización, rendimiento web y tecnología.</p>
+
+						<form class="inline-newsletter" novalidate autocomplete="off">
+							<div class="input-row">
+								<label for="email" class="sr-only">Correo electrónico para suscripción</label>
+								<input type="email" name="email" id="email" placeholder="tu@email.com" required autocomplete="off">
+								<div class="form-group-additional" aria-hidden="true">
+									<label for="username_hp" class="sr-only">Si eres humano, ignora este campo</label>
+									<input type="text" id="username_hp" tabindex="-1" autocomplete="off">
+								</div>
+								<button type="submit" id="formulario" class="sub-btn">
+									<span class="sr-only">Enviar suscripción al newsletter</span>
+									<!-- Icono de carta (SVG inline) -->
+									<svg class="icon-mail" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+										<path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11zM4.5 6L12 11l7.5-5H4.5zM20 17.5V8.7l-7.1 4.75a1 1 0 0 1-1.02 0L4 8.7v8.8h16z"/>
+									</svg>
+								</button>
+							</div>
+
+							<div class="alerts">
+								<div style="display: none;" id="suscrito" class="alert alert-success" role="alert">Gracias por suscribirte</div>
+								<div style="display: none;" id="errorsuscrito" class="template alert alert-danger" role="alert">Debes ingresar un correo válido!</div>
+							</div>
+
+							<div id="cargadorFooter">
+								<output class="spinner-border text-primary">
+									<span class="sr-only">Procesando suscripción...</span>
+								</output>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p class="font-weight-bold copyright-text">
+						&copy; <span id="year"></span> - Williboper Dev | Código con propósito <i class="fa fa-heart" aria-hidden="true"></i>
+
+						<script>
+						document.getElementById('year').textContent = new Date().getFullYear();
+						</script> 
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- loader -->
+	<div id="loader">
+		<div class="code-loader">
+			<span>{</span><span>}</span>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="js/popper.min.js"></script><!--dropdowns -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/scrollax.min.js"></script>
+  	<script src="js/main.js"></script>
+
+	<!-- Botón flotante de WhatsApp -->
+	<a id="btn-whatsapp" class="whatsapp-float" data-message="Hola Williams, me gustaría conversar sobre un proyecto que quiero impulsar." target="_blank" rel="noopener noreferrer">
+		<i class="fab fa-whatsapp" aria-hidden="true"></i>
+		<span class="sr-only">Contactar por WhatsApp (se abre en una nueva pestaña)</span>
+	</a>
+
+</body>
+</html>
