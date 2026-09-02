@@ -28,3 +28,7 @@ utilities/
 
 # vercel
 .vercel
+
+# Archivos minificados
+/css/style.min.css
+/js/main.min.js

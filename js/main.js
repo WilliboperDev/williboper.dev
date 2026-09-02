@@ -72,18 +72,19 @@
 		$(document).on('click', '#ftco-nav a[href^="#"]', function (event) {
 			event.preventDefault();
 
-			var href = $.attr(this, 'href');
+			const href = this.getAttribute('href');
 
 			// Cierra el menú al seleccionar una opción internamente
 			if ($('.navbar-toggler').attr('aria-expanded') === 'true') {
 				$('.navbar-toggler').trigger('click');
 			}
 
-			$('html, body').animate({
-				scrollTop: $($.attr(this, 'href')).offset().top - 70
-			}, 1200, function () {
-				// window.location.hash = href;
-			});
+			// Scroll suave hacia la sección
+			if (href && href !== '#') {
+				$('html, body').animate({
+					scrollTop: $(href).offset().top - 70
+				}, 1200);
+			}
 		});
 
 		// Cierra el menú cuando se hace tap en el fondo oscuro/backdrop
@@ -172,12 +173,12 @@
 			var st = $(this).scrollTop();
 			var navbar = $('.ftco_navbar, .ftco-navbar-light, .toggle-menu');
 
-			// 1. Estado inicial en el tope (Transparente)
+			// Estado inicial en el tope (Transparente)
 			if (st === 0) {
 				navbar.removeClass('scrolled navbar-invisible');
 			}
 
-			// 2. Estado intermedio (Ocultar solo al bajar, mostrar al subir)
+			// Estado intermedio (Ocultar solo al bajar, mostrar al subir)
 			if (st > 10 && st < 150) {
 				if (st > lastScrollTop) {
 					// Bajando: ocultar para transición limpia
@@ -191,7 +192,7 @@
 				}
 			}
 
-			// 3. Estado Scrolled (Reaparece con fondo de color)
+			// Estado Scrolled (Reaparece con fondo de color)
 			if (st >= 150) {
 				if (!navbar.hasClass('scrolled')) {
 					navbar.addClass('scrolled');
@@ -216,28 +217,33 @@
 
 				i++;
 
-				$(this.element).addClass('item-animate');
-				setTimeout(function () {
+				// Función que maneja la animación de un solo elemento
+				function handleSingleAnimation(index) {
+					const el = $(this);
+					const effect = el.data('animate-effect');
+					const validEffect = ['fadeIn', 'fadeInLeft', 'fadeInRight'].includes(effect) 
+						? effect 
+						: 'fadeInUp';
 
+					el.addClass(`${validEffect} ftco-animated`).removeClass('item-animate');
+				}
+
+				// Función que recorre los elementos
+				function processAllAnimations() {
 					$('body .ftco-animate.item-animate').each(function (k) {
-						var el = $(this);
-					setTimeout(function () {
-							var effect = el.data('animate-effect');
-							if (effect === 'fadeIn') {
-								el.addClass('fadeIn ftco-animated');
-							} else if (effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft ftco-animated');
-							} else if (effect === 'fadeInRight') {
-								el.addClass('fadeInRight ftco-animated');
-							} else {
-								el.addClass('fadeInUp ftco-animated');
-							}
-							el.removeClass('item-animate');
-						}, k * 50, 'easeInOutExpo');
+						// Usamos una función independiente con setTimeout basada en el índice
+						setTimeout(handleSingleAnimation.bind(this, k), k * 50);
 					});
+				}
 
-				}, 100);
+				// Función principal de inicio
+				function startAnimationSequence() {
+					setTimeout(processAllAnimations, 100);
+				}
 
+				// Ejecución inicial
+				$(this.element).addClass('item-animate');
+				startAnimationSequence();
 			}
 
 		}, { offset: '95%' });
@@ -273,7 +279,7 @@
 	var isSwitchingPopups = false; // Flag para evitar detener confeti al cambiar de popup
 
 	// Hacer la función global para que esté disponible en scripts inline
-	window.launchResourceConfetti = function() {
+	window.launchResourceConfetti = function () {
 		//console.log('[Confetti] Iniciando launchResourceConfetti');
 		stopResourceConfetti();
 
@@ -286,7 +292,7 @@
 		if (!wrap) {
 			console.log('[Confetti] .mfp-wrap no encontrado, reintentando hasta 5s...');
 			var attempts = 50; // 50 intentos × 100ms = 5 segundos
-			var interval = setInterval(function() {
+			var interval = setInterval(function () {
 				wrap = document.querySelector('.mfp-wrap');
 				if (wrap) {
 					clearInterval(interval);
@@ -309,17 +315,14 @@
 		canvas.className = 'resource-confetti-canvas';
 		canvas.setAttribute('aria-hidden', 'true');
 		var bg = wrap.querySelector('.mfp-bg');
-		if (bg && bg.nextSibling) {
-			wrap.insertBefore(canvas, bg.nextSibling);
-		} else {
-			wrap.insertBefore(canvas, wrap.firstChild);
-		}
+
+		wrap.insertBefore(canvas, bg?.nextSibling || wrap.firstChild);
 
 		// Asegurar posición absolute y tamaño del .mfp-wrap (no window)
 		canvas.style.position = 'absolute';
-		canvas.style.width  = wrap.offsetWidth + 'px';
+		canvas.style.width = wrap.offsetWidth + 'px';
 		canvas.style.height = wrap.offsetHeight + 'px';
-		canvas.width  = wrap.offsetWidth;
+		canvas.width = wrap.offsetWidth;
 		canvas.height = wrap.offsetHeight;
 
 		var ctx = canvas.getContext('2d');
@@ -329,9 +332,9 @@
 		function setSize() {
 			var w = wrap.offsetWidth;
 			var h = wrap.offsetHeight;
-			canvas.width  = w;
+			canvas.width = w;
 			canvas.height = h;
-			canvas.style.width  = w + 'px';
+			canvas.style.width = w + 'px';
 			canvas.style.height = h + 'px';
 		}
 		resourceConfettiResize = setSize;
@@ -454,7 +457,7 @@
 				},
 				change: function () {
 					// Si el contenido cambia a popup-recursos, lanzar confetti
-					if (this.content && this.content.attr('id') === 'popup-recursos') {
+					if (this.content?.attr('id') === 'popup-recursos') {
 						setTimeout(launchResourceConfetti, 280);
 					}
 				}
@@ -463,40 +466,28 @@
 	}
 
 	// Función para descargar la guía PDF con un nombre predeterminado
-	window.downloadResourceGuide = function() {
+	window.downloadResourceGuide = function () {
 		var downloadName = '10-Errores-Comunes-en-WordPress.pdf';
-
-		// Detectar la ruta correcta del PDF dependiendo de la ubicación actual
-		var currentPath = window.location.pathname;
-		var pdfUrl;
-
-		// Si estamos en el directorio blog/, usar ruta relativa ../assets/docs/
-		if (currentPath.includes('/blog/')) {
-			pdfUrl = '../assets/docs/Guia-Para-Desarrolladores-Web.pdf';
-		} else {
-			// Si estamos en el root, usar ruta relativa assets/docs/
-			pdfUrl = 'assets/docs/Guia-Para-Desarrolladores-Web.pdf';
-		}
+		var pdfUrl = '/MyPortfolio/assets/docs/Guia-Para-Desarrolladores-Web.pdf';
 
 		console.log('[Descarga] Ruta detectada:', pdfUrl);
-		console.log('[Descarga] Path actual:', currentPath);
 
 		// También intentar descargar con nombre personalizado
-		setTimeout(function() {
+		setTimeout(function () {
 			var a = document.createElement('a');
 			a.href = pdfUrl;
 			a.download = downloadName;
 			a.style.display = 'none';
-			
+
 			// Evitar que el clic de descarga burbujee y cierre el popup
-			a.addEventListener('click', function(e) {
+			a.addEventListener('click', function (e) {
 				e.stopPropagation();
 			});
 
 			var container = document.getElementById('popup-recursos') || document.body;
 			container.appendChild(a);
 			a.click();
-			container.removeChild(a);
+			a.remove();
 			/*console.log('[Descarga] Intentando descargar con nombre:', downloadName);*/
 		}, 500);
 	}
@@ -507,8 +498,6 @@
 		var $btn = $(this);
 		var isBlogPage = window.location.pathname.includes('/blog/');
 
-		// En páginas de blog, el HTML inline maneja toda la lógica del popup.
-		// main.js solo necesita lanzar el confetti desde su callback.
 		if (isBlogPage) {
 			return; // El script del blog lo maneja completamente
 		}
@@ -545,7 +534,7 @@
 							setTimeout(launchResourceConfetti, 280);
 						},
 						change: function () {
-							if (this.content && this.content.attr('id') === 'popup-recursos') {
+							if (this.content?.attr('id') === 'popup-recursos') {
 								setTimeout(launchResourceConfetti, 280);
 							}
 						}
@@ -633,45 +622,45 @@
 		});
 	};
 
-		// Set active menu based on current page filename (for multi-page site)
-		var setActiveMenuItemByPage = function () {
-			
-			var path = window.location.pathname;
+	// Set active menu based on current page filename (for multi-page site)
+	var setActiveMenuItemByPage = function () {
 
-			// Si la URL está en /blog/ marcar la sección Blog
-			if (path.indexOf('/blog/') !== -1) {
-				var $blogLink = $('.navbar-nav .nav-link').filter(function () {
-					var href = $(this).attr('href') || '';
-					return href.indexOf('#blog-section') !== -1;
-				}).first();
-				if ($blogLink.length) {
-					$('.navbar-nav .nav-link, .navbar-nav .nav-item').removeClass('active');
-					$blogLink.parent('.nav-item').addClass('active');
-					$blogLink.addClass('active');
-					return;
-				}
-			}
+		var path = window.location.pathname;
 
-			// Si la URL corresponde a la página "Sobre mí"
-			if (path.indexOf('/sobre-mi') !== -1) {
-				var $aboutLink = $('.navbar-nav .nav-link').filter(function () {
-					var href = $(this).attr('href') || '';
-					return href.indexOf('#about-section') !== -1;
-				}).first();
-				if ($aboutLink.length) {
-					$('.navbar-nav .nav-link, .navbar-nav .nav-item').removeClass('active');
-					$aboutLink.parent('.nav-item').addClass('active');
-					$aboutLink.addClass('active');
-					return;
-				}
+		// Si la URL está en /blog/ marcar la sección Blog
+		if (path.includes('/blog/')) {
+			var $blogLink = $('.navbar-nav .nav-link').filter(function () {
+				const href = this.getAttribute('href') || '';
+				return href.includes('#blog-section');
+			}).first();
+			if ($blogLink.length) {
+				$('.navbar-nav .nav-link, .navbar-nav .nav-item').removeClass('active');
+				$blogLink.parent('.nav-item').addClass('active');
+				$blogLink.addClass('active');
+				return;
 			}
-		};
+		}
+
+		// Si la URL corresponde a la página "Sobre mí"
+		if (path.includes('/sobre-mi')) {
+			var $aboutLink = $('.navbar-nav .nav-link').filter(function () {
+				const href = this.getAttribute('href') || '';
+				return href.includes('#about-section');
+			}).first();
+			if ($aboutLink.length) {
+				$('.navbar-nav .nav-link, .navbar-nav .nav-item').removeClass('active');
+				$aboutLink.parent('.nav-item').addClass('active');
+				$aboutLink.addClass('active');
+				return;
+			}
+		}
+	};
 
 	// Initialize active menu handling
 	var initActiveMenu = function () {
 		var path = window.location.pathname || '/';
 		var currentPage = path.substring(path.lastIndexOf('/') + 1);
-		
+
 		console.log('[initActiveMenu] currentPage:', currentPage, 'path:', path);
 
 		if (currentPage === 'index.html' || currentPage === '' || currentPage.endsWith('/')) {
@@ -681,6 +670,10 @@
 			setActiveMenuItemByPage();
 		}
 	};
+
+	function validateEmail(email) {
+		return /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,}$/.test(email);
+	}
 
 	// Newsletter form handling
 	$(function () {
@@ -694,10 +687,6 @@
 
 		// URL del webhook de Pipedream para recibir los datos del formulario
 		var webhookUrl = 'https://eovgr0wvk43zuhi.m.pipedream.net';
-
-		function validateEmail(email) {
-			return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-		}
 
 		$form.on('submit', function (e) {
 			e.preventDefault(); // Prevent form submission
@@ -720,7 +709,7 @@
 			// Control de tiempo (Evitar clics repetidos rápidos)
 			var ahora = Date.now();
 			var UN_MINUTO = 60 * 1000;
-			
+
 			if (ahora - ultimaPeticion < UN_MINUTO) {
 				var segundosRestantes = Math.round((UN_MINUTO - (ahora - ultimaPeticion)) / 1000);
 				$error.text(`Por favor, espera ${segundosRestantes} segundos antes de intentar registrarte otra vez.`).fadeIn();
@@ -732,7 +721,7 @@
 				$success.fadeIn();
 				$input.val('');
 				setTimeout(function () { $success.fadeOut(); }, 4000);
-				return false; 
+				return false;
 			}
 
 			if (!validateEmail(email)) {
@@ -761,7 +750,7 @@
 					$success.fadeIn();
 					$input.val('');
 					$btn.prop('disabled', false);
-					setTimeout(function () { $success.fadeOut(); }, 4000);	
+					setTimeout(function () { $success.fadeOut(); }, 4000);
 				},
 				// Respuesta no exitosa o excedido el limite
 				error: function (xhr, status, error) {
@@ -778,10 +767,9 @@
 						ultimaPeticion = 0;
 					}
 
-					var mensajeError ='Hubo un problema de conexión. Inténtalo de nuevo.';
-					if (xhr.responseJSON && xhr.responseJSON.error) {
-						mensajeError = xhr.responseJSON.error; // "Demasiados intentos de registro..." o "El formato del correo..."
-					}
+					var mensajeError = 'Hubo un problema de conexión. Inténtalo de nuevo.';
+					// Demasiados intentos de registro o el formato del correo
+					mensajeError = xhr.responseJSON?.error;
 					// Mostramos el error real en la interfaz
 					$error.text(mensajeError).fadeIn();
 				}
@@ -790,6 +778,67 @@
 	});
 
 	// Contact form validation
+	function validatePhone(phone) {
+		return /^[0-9+\-\s()]{7,20}$/.test(phone);
+	}
+
+	// Validadores específicos para cada tipo de campo
+	const fieldValidators = {
+		nombre: (value) => {
+			if (!value) return 'Por favor ingresa tu nombre';
+			if (value.length < 2) return 'El nombre debe tener al menos 2 caracteres';
+			if (value.length > 100) return 'El nombre no puede tener más de 100 caracteres';
+			return null;
+		},
+		_replyto: (value) => {
+			if (!value || !validateEmail(value)) return 'Ingresa un email válido';
+			return null;
+		},
+		telefono: (value) => {
+			if (!value) return 'Ingresa tu teléfono';
+			if (!validatePhone(value)) return 'Formato de teléfono inválido';
+			return null;
+		},
+		mensaje: (value) => {
+			if (!value) return 'El mensaje es obligatorio';
+			if (value.length < 10) return 'El mensaje debe tener al menos 10 caracteres';
+			if (value.length > 2000) return 'El mensaje no puede tener más de 2000 caracteres';
+			return null;
+		}
+	};
+
+	function validateField($field) {
+		var value = $field.val().trim();
+		var fieldName = $field.attr('name');
+		var $feedback = $field.siblings('.invalid-feedback').first();
+
+		var errorMessage = null;
+
+		// Ejecutamos la regla de validación correspondiente si existe
+		if (fieldValidators[fieldName]) {
+			errorMessage = fieldValidators[fieldName](value);
+		}
+
+		var valid = !errorMessage;
+		var message = errorMessage || ($feedback.length ? $feedback.text().trim() : 'Por favor completa este campo');
+
+		if (valid) {
+			$field.removeClass('is-invalid').addClass('is-valid');
+		} else {
+			$field.removeClass('is-valid').addClass('is-invalid');
+			if ($feedback.length) {
+				$feedback.text(message);
+			}
+		}
+
+		return valid;
+	}
+
+	// Función para extraer el mensaje de cada error
+	function extractErrorMessage(err) {
+		return err.message;
+	}
+
 	$(function () {
 		var $contactForm = $('#contactForm');
 		if (!$contactForm.length) {
@@ -798,75 +847,6 @@
 		var $alertContainer = $('#alertContainer');
 		var $submitBtn = $contactForm.find('#submitBtn');
 		var $fields = $contactForm.find('input[name="nombre"], input[name="_replyto"], input[name="telefono"], textarea[name="mensaje"]');
-
-		function validateEmail(email) {
-			return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-		}
-
-		function validatePhone(phone) {
-			return /^[0-9+\-\s()]{7,20}$/.test(phone);
-		}
-
-		function validateField($field) {
-			var value = $field.val().trim();
-			var fieldName = $field.attr('name');
-			var $feedback = $field.siblings('.invalid-feedback').first();
-			var message = $feedback.length ? $feedback.text().trim() : 'Por favor completa este campo';
-			var valid = true;
-
-			switch (fieldName) {
-				case 'nombre':
-					if (!value) {
-						message = 'Por favor ingresa tu nombre';
-						valid = false;
-					} else if (value.length < 2) {
-						message = 'El nombre debe tener al menos 2 caracteres';
-						valid = false;
-					} else if (value.length > 100) {
-						message = 'El nombre no puede tener más de 100 caracteres';
-						valid = false;
-					}
-					break;
-				case '_replyto':
-					if (!value || !validateEmail(value)) {
-						message = 'Ingresa un email válido';
-						valid = false;
-					}
-					break;
-				case 'telefono':
-					if (!value) {
-						message = 'Ingresa tu teléfono';
-						valid = false;
-					} else if (!validatePhone(value)) {
-						message = 'Formato de teléfono inválido';
-						valid = false;
-					}
-					break;
-				case 'mensaje':
-					if (!value) {
-						message = 'El mensaje es obligatorio';
-						valid = false;
-					} else if (value.length < 10) {
-						message = 'El mensaje debe tener al menos 10 caracteres';
-						valid = false;
-					} else if (value.length > 2000) {
-						message = 'El mensaje no puede tener más de 2000 caracteres';
-						valid = false;
-					}
-					break;
-			}
-
-			if (valid) {
-				$field.removeClass('is-invalid').addClass('is-valid');
-			} else {
-				$field.removeClass('is-valid').addClass('is-invalid');
-				if ($feedback.length) {
-					$feedback.text(message);
-				}
-			}
-
-			return valid;
-		}
 
 		function resetContactForm() {
 			$contactForm[0].reset();
@@ -916,12 +896,12 @@
 			var additionalInfo = $contactForm.find('[name="direccion"]').val();
 			if (additionalInfo) {
 				showAlert('¡Mensaje enviado! Te responderé a la brevedad. 🙌', 'success');
-                resetContactForm();
+				resetContactForm();
 				return;
 			}
 
 			// ============================================
-			
+
 			$submitBtn.prop('disabled', true); // Evita doble envío
 			$btnText.text('Enviando…');
 			$spinner.removeClass('d-none').removeAttr('aria-hidden');
@@ -938,7 +918,7 @@
 			// --- Detección de entorno ---
 			// Formspree bloquea con 403 las peticiones desde localhost.
 			// En desarrollo simulamos el éxito; en producción se hace el fetch real.
-			var isLocalhost = ['localhost', '127.0.0.1'].indexOf(window.location.hostname) !== -1;
+			var isLocalhost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
 
 			if (isLocalhost) {
 				console.warn('[FormHandler] Entorno local detectado — simulando envío (Formspree bloquea localhost con 403).');
@@ -959,59 +939,60 @@
 					'Accept': 'application/json'
 				}
 			})
-				.then(function (response) {
-					//console.log('[FormHandler] Respuesta status:', response.status);
-					if (response.ok) {
-						showAlert('¡Mensaje enviado! Te responderé a la brevedad. 🙌', 'success');
-						resetContactForm();
-						//console.log('[FormHandler] Enviado correctamente vía fetch.');
-					} else {
-						return response.json().then(function (data) {
-							console.error('[FormHandler] Error de Formspree:', data);
-							var msg = (data && data.errors)
-								? data.errors.map(function (err) { return err.message; }).join(', ')
-								: 'Hubo un problema al enviar el formulario. Intenta de nuevo.';
-							showAlert(msg, 'danger');
-						});
-					}
-				})
-				.catch(function (err) {
-					console.error('[FormHandler] Error de red/CORS:', err);
-					showAlert('Error de red. Verifica tu conexión e intenta de nuevo.', 'danger');
-				})
-				.finally(function () {
-					$submitBtn.prop('disabled', false);
-					$btnText.text('Enviar mensaje');
-					$spinner.addClass('d-none').attr('aria-hidden', 'true');
-				});
+			.then(function (response) {
+				//console.log('[FormHandler] Respuesta status:', response.status);
+				if (response.ok) {
+					showAlert('¡Mensaje enviado! Te responderé a la brevedad. 🙌', 'success');
+					resetContactForm();
+					//console.log('[FormHandler] Enviado correctamente vía fetch.');
+				} else {
+					return response.json().then(function (data) {
+						console.error('[FormHandler] Error de Formspree:', data);
+
+						var errorsList = data?.errors?.map(extractErrorMessage);
+						var msg = errorsList ? errorsList.join(', ') : 'Hubo un problema al enviar el formulario. Intenta de nuevo.';
+
+						showAlert(msg, 'danger');
+					});
+				}
+			})
+			.catch(function (err) {
+				console.error('[FormHandler] Error de red/CORS:', err);
+				showAlert('Error de red. Verifica tu conexión e intenta de nuevo.', 'danger');
+			})
+			.finally(function () {
+				$submitBtn.prop('disabled', false);
+				$btnText.text('Enviar mensaje');
+				$spinner.addClass('d-none').attr('aria-hidden', 'true');
+			});
 		});
 	});
 
 	// === Popup de recursos y botón de PayPal ===
 	$(function () {
-		// 1. Mostrar el popup automáticamente a los 7 segundos
+		// Mostrar el popup automáticamente a los 7 segundos
 		setTimeout(function () {
 			// Para evitar errores si el usuario entra a una página sin popup de recursos
-			if ($('#sidebar-recursos').length === 0) return; 
+			if ($('#sidebar-recursos').length === 0) return;
 
 			$.magnificPopup.open({
-			items: { src: '#sidebar-recursos' },
-			type: 'inline',
-			fixedContentPos: true,
-			removalDelay: 400,
-			mainClass: 'mfp-zoom-in mfp-fade'
+				items: { src: '#sidebar-recursos' },
+				type: 'inline',
+				fixedContentPos: true,
+				removalDelay: 400,
+				mainClass: 'mfp-zoom-in mfp-fade'
 			});
 		}, 7000);
 
-		// 2. Cerrar popup con teclado
+		// Cerrar popup con teclado
 		$(document).on('keydown', '.resource-popup-close', function (e) {
 			if (e.key === 'Enter' || e.key === ' ') {
-			e.preventDefault();
-			$.magnificPopup.close();
+				e.preventDefault();
+				$.magnificPopup.close();
 			}
 		});
 
-		// 3. Manejar click en el botón de descarga
+		// Manejar click en el botón de descarga
 		$(document).on('click', '#sidebar-recursos #btn-download', function (e) {
 			e.preventDefault();
 			e.stopPropagation();
@@ -1023,68 +1004,86 @@
 			$btn.find('.btn-download-text').text('Preparando guía...');
 
 			setTimeout(function () {
-			$btn.removeClass('loading').attr('aria-busy', 'false');
-			$btn.find('.btn-download-text').text('📥 Obtener Guía');
+				$btn.removeClass('loading').attr('aria-busy', 'false');
+				$btn.find('.btn-download-text').text('📥 Obtener Guía');
 
-			if (typeof downloadResourceGuide === 'function') {
-				downloadResourceGuide();
-			} else {
-				console.error('[Blog] downloadResourceGuide is not defined');
-			}
+				if (typeof downloadResourceGuide === 'function') {
+					downloadResourceGuide();
+				} else {
+					console.error('[Blog] downloadResourceGuide is not defined');
+				}
 
-			if ($.magnificPopup.instance) {
-				$.magnificPopup.close();
-				setTimeout(function () { openSuccessPopup(); }, 450);
-			} else {
-				openSuccessPopup();
-			}
+				if ($.magnificPopup.instance?.isOpen) {
+					var mfp = $.magnificPopup.instance;
+					mfp.items = [{ src: '#popup-recursos', type: 'inline' }];
+					mfp.index = 0;
+					mfp.updateItemHTML();
+
+					setTimeout(function () {
+						if (typeof launchResourceConfetti === 'function') {
+							launchResourceConfetti();
+						}
+						if (typeof confetti === 'function') {
+							confetti({ particleCount: 90, spread: 65, origin: { y: 0.65 } });
+						}
+					}, 280);
+					renderPaypalButton();
+				} else {
+					openSuccessPopup();
+				}
 			}, 1500);
 		});
 
-		// 4. Abrir popup de éxito
+		// Abrir popup de éxito (o cambiar contenido manteniendo el modal abierto)
+		function initSuccessContent() {
+			setTimeout(function () {
+				if (typeof launchResourceConfetti === 'function') {
+					launchResourceConfetti();
+				}
+				if (typeof confetti === 'function') {
+					confetti({ particleCount: 90, spread: 65, origin: { y: 0.65 } });
+				}
+			}, 280);
+			renderPaypalButton();
+		}
+
 		function openSuccessPopup() {
 			$.magnificPopup.open({
-			items: { src: '#popup-recursos' },
-			type: 'inline',
-			fixedContentPos: true,
-			removalDelay: 400,
-			mainClass: 'mfp-zoom-in mfp-fade',
-			callbacks: {
-				open: function () {
-				setTimeout(function () {
-					if (typeof launchResourceConfetti === 'function') {
-                      launchResourceConfetti();
-                    }
-					if (typeof confetti === 'function') {
-					confetti({ particleCount: 90, spread: 65, origin: { y: 0.65 } });
+				items: { src: '#popup-recursos' },
+				type: 'inline',
+				fixedContentPos: true,
+				removalDelay: 400,
+				mainClass: 'mfp-zoom-in mfp-fade',
+				callbacks: {
+					open: function () {
+						initSuccessContent();
+					},
+					change: function () {
+						initSuccessContent();
+					},
+					close: function () {
+						if (typeof stopResourceConfetti === 'function') {
+							stopResourceConfetti();
+						}
 					}
-				}, 500);
-				renderPaypalButton(); // 👈 Renderiza dinámicamente
-				},
-				close: function () {
-                  //console.log('[Blog] Popup de éxito cerrado, limpiando confetti');
-                  if (typeof stopResourceConfetti === 'function') {
-                    stopResourceConfetti();
-                  }
-                }
-			}
+				}
 			});
 		}
 
-		// 5. Renderizar botón de PayPal DINÁMICO
+		// Renderizar botón de PayPal DINÁMICO
 		function renderPaypalButton() {
 			var container = document.getElementById('paypal-container-popup');
 			if (!container) return;
 
 			// LEER EL ID DESDE EL HTML
-			var buttonId = container.getAttribute('data-button-id'); 
+			var buttonId = container.dataset.buttonId;
 			if (!buttonId) {
 				console.error('[Blog] No se encontró el data-button-id en el contenedor');
 				return;
 			}
 
 			while (container.firstChild) {
-				container.removeChild(container.firstChild);
+				container.firstChild?.remove();
 			}
 
 			var attempts = 0;
@@ -1107,17 +1106,17 @@
 	// WhatsApp flotante
 	document.addEventListener('DOMContentLoaded', () => {
 		const btnWhatsapp = document.getElementById('btn-whatsapp');
-		
+
 		if (btnWhatsapp) {
 			// Número oculto en Base64
 			const phone = atob('NTg0MTI1ODQxOTc1');
-			
+
 			// Obtenemos el texto desde el atributo data-message del HTML
-			const rawMessage = btnWhatsapp.getAttribute('data-message');
-    		const encodedMessage = encodeURIComponent(rawMessage);
-			
+			const rawMessage = btnWhatsapp.dataset.message;
+			const encodedMessage = encodeURIComponent(rawMessage);
+
 			// Asignamos la URL completa al enlace
-    		btnWhatsapp.href = `https://wa.me/${phone}?text=${encodedMessage}`;
+			btnWhatsapp.href = `https://wa.me/${phone}?text=${encodedMessage}`;
 		}
 	});
 
