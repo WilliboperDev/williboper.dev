@@ -36,7 +36,7 @@
         },
         {
           "key": "Permissions-Policy",
-          "value": "camera=none, microphone=none, geolocation=none, interest-cohort=none, payment=(self \"https://www.paypal.com\")"
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=(), payment=(self \"https://www.paypal.com\")"
         },
         {
           "key": "Strict-Transport-Security",
