@@ -684,9 +684,7 @@
 		var $success = $('#suscrito');
 		var $error = $('#errorsuscrito');
 		var ultimaPeticion = 0; // Controlar el tiempo de creditos
-
-		// URL del webhook de Pipedream para recibir los datos del formulario
-		var webhookUrl = 'https://eovgr0wvk43zuhi.m.pipedream.net';
+		var webhookUrl = process.env.PIPEDREAM_ENDPOINT; // Variable Pipedream
 
 		$form.on('submit', function (e) {
 			e.preventDefault(); // Prevent form submission
@@ -738,6 +736,14 @@
 			$loader.show();
 
 			// Petición real a Pipedream mediante AJAX
+			if (!webhookUrl) {
+				console.warn('PIPEDREAM_ENDPOINT no está configurado.');
+				$loader.hide();
+				$btn.prop('disabled', false);
+				$error.text('Error de configuración en el servidor. ⚠️').fadeIn();
+				return false;
+			}
+
 			$.ajax({
 				url: webhookUrl,
 				type: 'POST',
@@ -931,7 +937,19 @@
 				return;
 			}
 
-			fetch('https://formspree.io/f/xeevbknv', {
+			var FORMSPREE_ID = process.env.FORMSPREE_ID;
+			if (!FORMSPREE_ID) {
+				console.error('[FormHandler] Error: FORMSPREE_ID no está configurado.');
+				showAlert('Error de configuración en el servidor. Inténtalo más tarde.', 'danger');
+				// Restaurar el botón/spinner antes de salir
+				$submitBtn.prop('disabled', false);
+				$btnText.text('Enviar mensaje');
+				$spinner.addClass('d-none').attr('aria-hidden', 'true');
+				
+				return;
+			} 
+
+			fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
 				method: 'POST',
 				body: JSON.stringify(payload),
 				headers: {
