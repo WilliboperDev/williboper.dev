@@ -30,10 +30,9 @@
   --primary-color: #3b82f6;
   --secondary-color: #1e40af;
   --light-bg: #f0f9ff;
+  /*colores de marca */
   --primary-marca: #fab800;
-  /*color de marca */
   --secondary-marca: #124390;
-  /*color de marca */
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
