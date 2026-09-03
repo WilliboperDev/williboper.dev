@@ -40,9 +40,6 @@
 		window.addEventListener('load', initLoader);
 	}
 
-	// Scrollax
-	$.Scrollax();
-
 	// Burger Menu
 	var burgerMenu = function () {
 
@@ -663,7 +660,7 @@
 
 		console.log('[initActiveMenu] currentPage:', currentPage, 'path:', path);
 
-		if (currentPage === 'index.html' || currentPage === '' || currentPage.endsWith('/')) {
+		if (currentPage === '/' || currentPage === '' || currentPage.endsWith('/')) {
 			$(window).on('scroll', setActiveMenuByScroll);
 			setActiveMenuByScroll();
 		} else {
