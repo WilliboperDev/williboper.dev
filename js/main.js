@@ -577,7 +577,7 @@
 		$t.addClass('active');
 
 		// Seleccionar todos los contenedores de proyectos (las columnas col-*)
-		var $projectItems = $('#projects-section .project').closest('[class^="col-"]');
+		var $projectItems = $('#portafolio .project').closest('[class^="col-"]');
 
 		if (filter === 'all') {
 			$projectItems.each(function () {
@@ -629,7 +629,7 @@
 		if (path.includes('/blog/')) {
 			var $blogLink = $('.navbar-nav .nav-link').filter(function () {
 				const href = this.getAttribute('href') || '';
-				return href.includes('#blog-section');
+				return href.includes('#blog');
 			}).first();
 			if ($blogLink.length) {
 				$('.navbar-nav .nav-link, .navbar-nav .nav-item').removeClass('active');
@@ -643,7 +643,7 @@
 		if (path.includes('/sobre-mi')) {
 			var $aboutLink = $('.navbar-nav .nav-link').filter(function () {
 				const href = this.getAttribute('href') || '';
-				return href.includes('#about-section');
+				return href.includes('#sobre-mi');
 			}).first();
 			if ($aboutLink.length) {
 				$('.navbar-nav .nav-link, .navbar-nav .nav-item').removeClass('active');
@@ -659,7 +659,7 @@
 		var path = window.location.pathname || '/';
 		var currentPage = path.substring(path.lastIndexOf('/') + 1);
 
-		console.log('[initActiveMenu] currentPage:', currentPage, 'path:', path);
+		/*console.log('[initActiveMenu] currentPage:', currentPage, 'path:', path);*/
 
 		if (currentPage === '/' || currentPage === '' || currentPage.endsWith('/')) {
 			$(window).on('scroll', setActiveMenuByScroll);
