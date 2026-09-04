@@ -29,6 +29,7 @@ utilities/
 # vercel
 .vercel
 
-# Archivos minificados
+# Archivos minificados y generados por el build
 /css/style.min.css
 /js/main.min.js
+/webfonts

@@ -20,15 +20,26 @@ async function build() {
       }
     });
 
-    // 2. Minificar CSS
+    // 2. Minificar y empaquetar CSS (incluyendo FontAwesome y fuentes)
     await esbuild.build({
       entryPoints: ['css/style.css'],
       outfile: 'css/style.min.css',
+      bundle: true,  // Necesario para procesar el @import de FontAwesome
       minify: true,
+      external: ['/images/*', '../images/*', './images/*'], // Ignora rutas de imágenes absolutas y relativas
+      // Le dice a esbuild que extraiga las fuentes
+      loader: {
+        '.woff': 'file',                       
+        '.woff2': 'file',   
+        '.eot': 'file',
+        '.ttf': 'file',
+        '.svg': 'file'
+      },
+      assetNames: '../webfonts/[name]' // Genera las fuentes en la carpeta /webfonts/
     });
 
     const elapsed = Date.now() - start;
-    console.log(`✅ ¡Archivos minificados con éxito en ${elapsed}ms!`);
+    console.log(`✅ ¡Archivos minificados y empaquetados con éxito en ${elapsed}ms!`);
   } catch (error) {
     console.error('❌ Error durante la minificación:', error);
     process.exit(1);
