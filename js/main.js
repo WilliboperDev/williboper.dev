@@ -467,7 +467,7 @@ import confetti from 'canvas-confetti';
 	window.downloadResourceGuide = function () {
 		var downloadName = '10-Errores-Comunes-en-WordPress.pdf';
 		/*var pdfUrl = '/MyPortfolio/assets/docs/Guia-Para-Desarrolladores-Web.pdf';*/
-		var pdfUrl = '../assets/docs/Guia-Para-Desarrolladores-Web.pdf';
+		var pdfUrl = '/assets/docs/Guia-Para-Desarrolladores-Web.pdf';
 
 		console.log('[Descarga] Ruta detectada:', pdfUrl);
 
