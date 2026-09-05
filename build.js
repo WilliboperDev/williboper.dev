@@ -10,6 +10,7 @@ async function build() {
     await esbuild.build({
       entryPoints: ['js/main.js'],
       outfile: 'js/main.min.js',
+      bundle: true, // Necesario para importar canvas-confetti
       minify: true,
       sourcemap: false,         // Cambia a true para depurar
       target: ['es2020'],
