@@ -18438,3 +18438,29 @@ html:has(.mfp-wrap) #btn-whatsapp {
     display: none !important;
   }
 }
+
+/* 1. Elimina el recuadro de toque transparente nativo de Android e iOS */
+.btn, 
+.btn-primary, 
+.btn-outline-primary {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  -webkit-touch-callout: none !important;
+  user-select: none;
+}
+
+/* 2. Evita que el estado :active de Bootstrap cambie el fondo al mantener presionado */
+.btn-primary:active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:active,
+.btn-outline-primary:not(:disabled):not(.disabled):active {
+  background-color: #007bff !important; /* Fuerza tu color base */
+  border-color: #007bff !important;
+  box-shadow: none !important;
+}
+
+/* 3. Elimina cualquier sombra o borde de enfoque acumulado */
+.btn:focus,
+.btn:active:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
