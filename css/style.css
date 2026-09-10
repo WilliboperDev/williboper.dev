@@ -18453,8 +18453,8 @@ html:has(.mfp-wrap) #btn-whatsapp {
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-outline-primary:active,
 .btn-outline-primary:not(:disabled):not(.disabled):active {
-  background-color: #007bff !important; /* Fuerza tu color base */
-  border-color: #007bff !important;
+  background: var(--secondary-marca) !important; /* Fuerza tu color base */
+  border-color: var(--secondary-marca) !important;
   box-shadow: none !important;
 }
 
