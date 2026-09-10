@@ -4543,6 +4543,8 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #0062cc;
   border-color: #005cbf;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 .btn-secondary {
