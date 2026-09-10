@@ -18439,35 +18439,16 @@ html:has(.mfp-wrap) #btn-whatsapp {
   }
 }
 
-/* 1. Elimina el destello/sombra nativa al tocar en iOS y Android */
-.btn,
-button,
-a.btn {
-  -webkit-tap-highlight-color: transparent !important;
-  -webkit-touch-callout: none;
-}
 
-/* 2. Anula el halo de enfoque y sombras al hacer clic o toque */
-.btn:focus,
-.btn:focus-visible,
-.btn:active,
-.btn:active:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-}
-
-/* 3. Evita que el hover se quede "pegado" en pantallas táctiles */
 @media (hover: none) and (pointer: coarse) {
-  .btn-primary:hover,
-  .btn-primary:focus {
-    background-color: #007bff; /* Color base */
-    border-color: #007bff;
-  }
-  
-  .btn-outline-primary:hover,
-  .btn-outline-primary:focus {
-    background-color: transparent;
-    color: #007bff;
+  .btn:focus,
+  .btn-primary:focus,
+  .btn-outline-primary:focus,
+  .btn:active:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    /* Mantiene el color base sin aclararlo */
+    background-color: initial; 
   }
 }
