@@ -18439,24 +18439,34 @@ html:has(.mfp-wrap) #btn-whatsapp {
   }
 }
 
-.btn-primary:focus,
-.btn-primary:focus-visible,
-.btn-primary:active:focus,
-.btn-outline-primary:focus,
-.btn-outline-primary:focus-visible,
-.btn-outline-primary:active:focus {
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  outline: none !important;
+/* 1. Elimina el destello/sombra nativa al tocar en iOS y Android */
+.btn,
+button,
+a.btn {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none;
 }
 
-/* Evita que el estado :hover se quede "atrapado" en pantallas táctiles */
-@media (hover: none) {
-  .btn-primary:hover {
-    background-color: #007bff; /* Color original del botón */
+/* 2. Anula el halo de enfoque y sombras al hacer clic o toque */
+.btn:focus,
+.btn:focus-visible,
+.btn:active,
+.btn:active:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}
+
+/* 3. Evita que el hover se quede "pegado" en pantallas táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #007bff; /* Color base */
     border-color: #007bff;
   }
-  .btn-outline-primary:hover {
+  
+  .btn-outline-primary:hover,
+  .btn-outline-primary:focus {
     background-color: transparent;
     color: #007bff;
   }
