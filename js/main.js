@@ -1171,4 +1171,10 @@ import confetti from 'canvas-confetti';
 		initActiveMenu();
 	});
 
+	document.querySelectorAll('.btn').forEach(button => {
+		button.addEventListener('touchend', function() {
+			this.blur(); // Quita el foco automáticamente al levantar el dedo
+		});
+	});
+
 })(jQuery);
