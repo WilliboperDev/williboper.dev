@@ -18438,17 +18438,3 @@ html:has(.mfp-wrap) #btn-whatsapp {
     display: none !important;
   }
 }
-
-
-@media (hover: none) and (pointer: coarse) {
-  .btn:focus,
-  .btn-primary:focus,
-  .btn-outline-primary:focus,
-  .btn:active:focus {
-    outline: none !important;
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    /* Mantiene el color base sin aclararlo */
-    background-color: initial; 
-  }
-}
