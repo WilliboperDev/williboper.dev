@@ -18448,16 +18448,6 @@ html:has(.mfp-wrap) #btn-whatsapp {
   user-select: none;
 }
 
-/* 2. Evita que el estado :active de Bootstrap cambie el fondo al mantener presionado */
-.btn-primary:active,
-.btn-primary:not(:disabled):not(.disabled):active,
-.btn-outline-primary:active,
-.btn-outline-primary:not(:disabled):not(.disabled):active {
-  background: var(--secondary-marca) !important; /* Fuerza tu color base */
-  border-color: var(--secondary-marca) !important;
-  box-shadow: none !important;
-}
-
 /* 3. Elimina cualquier sombra o borde de enfoque acumulado */
 .btn:focus,
 .btn:active:focus {
