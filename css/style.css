@@ -4524,7 +4524,7 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
   color: #ffffff;
-  background-color: #004085 !important;
+  background-color: #004085;
   border-color: #003768;
 }
 
@@ -4853,12 +4853,12 @@ fieldset:disabled a.btn {
   border-color: #0056b3;
 }
 
-.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
+/*.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
 .show>.btn-outline-primary.dropdown-toggle:focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-}
+}*/
 
 .btn-outline-secondary {
   color: #6c757d;
