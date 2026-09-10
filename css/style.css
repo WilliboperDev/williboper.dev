@@ -4543,8 +4543,6 @@ fieldset:disabled a.btn {
   color: #fff;
   background-color: #0062cc;
   border-color: #005cbf;
-  box-shadow: none !important;
-  outline: none !important;
 }
 
 .btn-secondary {
@@ -4858,10 +4856,8 @@ fieldset:disabled a.btn {
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
 .show>.btn-outline-primary.dropdown-toggle:focus {
-  /*-webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);*/
-  box-shadow: none !important;
-  outline: none !important;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.4);
+  box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.4);
 }
 
 .btn-outline-secondary {
