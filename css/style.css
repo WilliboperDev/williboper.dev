@@ -4860,13 +4860,6 @@ fieldset:disabled a.btn {
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
 }
 
-.btn-primary:not(:disabled):not(.disabled):active:focus,
-.btn-outline-primary:not(:disabled):not(.disabled):active:focus {
-  -webkit-box-shadow: none !important;
-  box-shadow: none !important;
-  outline: none;
-}
-
 .btn-outline-secondary {
   color: #6c757d;
   border-color: #6c757d;
@@ -18443,5 +18436,28 @@ html:has(.mfp-wrap) #btn-whatsapp {
 
   .ftco-navbar-light.scrolled .logo-scrolled {
     display: none !important;
+  }
+}
+
+.btn-primary:focus,
+.btn-primary:focus-visible,
+.btn-primary:active:focus,
+.btn-outline-primary:focus,
+.btn-outline-primary:focus-visible,
+.btn-outline-primary:active:focus {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Evita que el estado :hover se quede "atrapado" en pantallas táctiles */
+@media (hover: none) {
+  .btn-primary:hover {
+    background-color: #007bff; /* Color original del botón */
+    border-color: #007bff;
+  }
+  .btn-outline-primary:hover {
+    background-color: transparent;
+    color: #007bff;
   }
 }
