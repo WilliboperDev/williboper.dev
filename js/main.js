@@ -129,8 +129,10 @@ import confetti from 'canvas-confetti';
 				homeSliderOptions.animateIn = 'fadeIn';
 			}
 
-			$('.home-slider').owlCarousel(
-				homeSliderOptions);
+			$('.home-slider').owlCarousel({
+				...homeSliderOptions,
+				dotClass: 'owl-dot'
+			});
 		}
 
 		if ($('.carousel-FAQS').length) {
