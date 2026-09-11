@@ -120,8 +120,7 @@ import confetti from 'canvas-confetti';
 				autoplayHoverPause: false,
 				margin: 0,
 				nav: false,
-				items: 1,
-				dots: true
+				items: 1
 			};
 
 			// Si la pantalla es grande, usar animaciones de fadeIn/fadeOut
@@ -130,12 +129,8 @@ import confetti from 'canvas-confetti';
 				homeSliderOptions.animateIn = 'fadeIn';
 			}
 
-			$('.home-slider').owlCarousel({
-				homeSliderOptions,
-				// Parámetros agregados para la personalización y accesibilidad de los dots
-				dotClass: 'owl-dot',
-  				dotsData: false
-			});
+			$('.home-slider').owlCarousel(
+				homeSliderOptions);
 		}
 
 		if ($('.carousel-FAQS').length) {
