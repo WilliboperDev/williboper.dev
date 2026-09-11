@@ -129,10 +129,12 @@ import confetti from 'canvas-confetti';
 				homeSliderOptions.animateIn = 'fadeIn';
 			}
 
-			$('.home-slider').owlCarousel({
-				...homeSliderOptions,
-				dotClass: 'owl-dot'
-			});
+			$('.home-slider').on('initialized.owl.carousel changed.owl.carousel', function() {
+				$(this).find('.owl-dot').each(function(index) {
+				$(this).attr('aria-label', `Diapositiva ${index + 1}`);
+				});
+			})
+			.owlCarousel(homeSliderOptions);
 		}
 
 		if ($('.carousel-FAQS').length) {
