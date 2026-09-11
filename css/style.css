@@ -13942,6 +13942,7 @@ a.text-dark:focus {
 
 .owl-carousel .owl-item {
   opacity: .4;
+  display: block;
 }
 
 .owl-carousel .owl-item.active {
