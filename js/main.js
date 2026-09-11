@@ -129,7 +129,12 @@ import confetti from 'canvas-confetti';
 				homeSliderOptions.animateIn = 'fadeIn';
 			}
 
-			$('.home-slider').owlCarousel(homeSliderOptions);
+			$('.home-slider').owlCarousel({
+				homeSliderOptions,
+				dotClass: 'owl-dot',
+				// Asegura que los dots generados tengan texto accesible
+  				dotsData: false
+			});
 		}
 
 		if ($('.carousel-FAQS').length) {
