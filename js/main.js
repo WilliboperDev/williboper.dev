@@ -1,6 +1,8 @@
 import { inject } from '@vercel/analytics';
-// Inicializa el rastreo de analíticas de Vercel
+import { injectSpeedInsights } from '@vercel/speed-insights';
+// Inicializa el rastreo de analíticas y el rendimiento técnico de Vercel
 inject();
+injectSpeedInsights();
 
 import confetti from 'canvas-confetti';
 
