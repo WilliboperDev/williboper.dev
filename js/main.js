@@ -1,4 +1,9 @@
+import { inject } from '@vercel/analytics';
+// Inicializa el rastreo de analíticas de Vercel
+inject();
+
 import confetti from 'canvas-confetti';
+
 (function ($) {
 
 	"use strict";
