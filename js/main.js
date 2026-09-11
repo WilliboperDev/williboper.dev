@@ -133,15 +133,12 @@ import confetti from 'canvas-confetti';
 				const dots = Array.from(document.querySelectorAll('.owl-dot'));
 				dots.forEach((dot, index) => {
 					dot.setAttribute('aria-label', `Diapositiva ${index + 1}`);
-					// Añadimos role para reforzar el árbol de accesibilidad
 					dot.setAttribute('role', 'tab');
 				});
 			});
 
-			// 2. Inicializar el carrusel con tus opciones originales
 			$('.home-slider').owlCarousel(homeSliderOptions);
 
-			// 3. Respaldo de ejecución inmediata para auditorías automatizadas
 			document.querySelectorAll('.owl-dot').forEach((dot, index) => {
 			dot.setAttribute('aria-label', `Diapositiva ${index + 1}`);
 			});
