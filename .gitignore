@@ -31,6 +31,7 @@ utilities/
 
 # Archivos minificados y generados por el build
 /css/style.min.css
+/css/vendor.min.css
 /js/main.min.js
 /webfonts
 

@@ -39,6 +39,23 @@ async function build() {
       assetNames: '../webfonts/[name]' // Genera las fuentes en la carpeta /webfonts/
     });
 
+    // 3. Minificar y empaquetar librerías externas (Vendor CSS)
+    await esbuild.build({
+      entryPoints: ['css/vendor.css'],
+      outfile: 'css/vendor.min.css',
+      bundle: true,
+      minify: true,
+      external: ['*.png', 'owl.video.play.png', '../images/*', './images/*'],
+      loader: {
+        '.woff': 'file',                     
+        '.woff2': 'file',   
+        '.eot': 'file',
+        '.ttf': 'file',
+        '.svg': 'file'
+      },
+      assetNames: '../webfonts/[name]'
+    });
+
     const elapsed = Date.now() - start;
     console.log(`✅ ¡Archivos minificados y empaquetados con éxito en ${elapsed}ms!`);
   } catch (error) {
