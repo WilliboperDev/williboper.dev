@@ -13941,8 +13941,8 @@ a.text-dark:focus {
 }
 
 .owl-carousel .owl-item {
+  display: block; /* Asegura que el primer elemento del carrusel no esté oculto inicialmente */
   opacity: .4;
-  display: block;
 }
 
 .owl-carousel .owl-item.active {
