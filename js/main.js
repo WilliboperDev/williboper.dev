@@ -120,7 +120,8 @@ import confetti from 'canvas-confetti';
 				autoplayHoverPause: false,
 				margin: 0,
 				nav: false,
-				items: 1
+				items: 1,
+				dots: true
 			};
 
 			// Si la pantalla es grande, usar animaciones de fadeIn/fadeOut
@@ -131,8 +132,8 @@ import confetti from 'canvas-confetti';
 
 			$('.home-slider').owlCarousel({
 				homeSliderOptions,
+				// Parámetros agregados para la personalización y accesibilidad de los dots
 				dotClass: 'owl-dot',
-				// Asegura que los dots generados tengan texto accesible
   				dotsData: false
 			});
 		}
