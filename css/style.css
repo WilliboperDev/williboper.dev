@@ -15746,11 +15746,27 @@ a.text-dark:focus {
   background-position: center center;
 }
 
-.img-index {
-  background-color: #112244;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(30, 68, 144, 0.4)), url('../images/hero-1.webp');
-  background-size: cover;
-  background-position: center;
+.img-index-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+/* Capa del degradado que antes estaba en el background */
+.img-index-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(30, 68, 144, 0.4));
+    z-index: 2;
+    pointer-events: none;
+}
+/* Estilo de la imagen de LCP */
+.hero-lcp-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
 
 .img-index-2 {
@@ -17194,7 +17210,7 @@ a.text-dark:focus {
   max-width: 450px !important;
   max-height: none !important;
   height: auto !important;
-  width: 60% !important;
+  width: 100% !important;
   display: block !important;
   object-fit: contain !important;
 }
