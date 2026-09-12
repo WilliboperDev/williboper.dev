@@ -15759,6 +15759,15 @@ a.text-dark:focus {
   background-position: center;
 }
 
+.hero-lcp-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
 @media (max-width: 991.98px) {
   .img-index {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(30, 68, 144, 0.7));
