@@ -15746,8 +15746,6 @@ a.text-dark:focus {
   background-position: center center;
 }
 
-
-
 .img-index-2 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(30, 68, 144, 0.4)), url('../images/hero-2.webp');
   background-size: cover;
@@ -15758,14 +15756,12 @@ a.text-dark:focus {
   .img-index {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(30, 68, 144, 0.7)), url('../images/hero-1.webp');
     background-size: cover;
-    background-position: center top;
     background-repeat: no-repeat;
   }
 
   .img-index-2 {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(30, 68, 144, 0.7)), url('../images/hero-2.webp');
     background-size: cover;
-    background-position: center top;
     background-repeat: no-repeat;
   }
 }
