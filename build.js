@@ -1,5 +1,6 @@
 const esbuild = require('esbuild');
 const path = require('node:path');
+const fs = require('node:fs');
 
 async function build() {
   console.log('⚡ Iniciando minificación con esbuild...');
@@ -55,6 +56,17 @@ async function build() {
       },
       assetNames: '../webfonts/[name]'
     });
+
+    // 4. Asegurar font-display: swap en los CSS empaquetados
+    const cssFiles = ['css/style.min.css', 'css/vendor.min.css'];
+    for (const file of cssFiles) {
+      if (fs.existsSync(file)) {
+        let cssContent = fs.readFileSync(file, 'utf8');
+        // Reemplaza cualquier variante de font-display:block por font-display:swap de forma flexible
+        cssContent = cssContent.replace(/font-display\s*:\s*block/gi, 'font-display:swap');
+        fs.writeFileSync(file, cssContent);
+      }
+    }
 
     const elapsed = Date.now() - start;
     console.log(`✅ ¡Archivos minificados y empaquetados con éxito en ${elapsed}ms!`);
