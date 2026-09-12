@@ -129,19 +129,17 @@ import confetti from 'canvas-confetti';
 				homeSliderOptions.animateIn = 'fadeIn';
 			}
 
-			$('.home-slider').on('initialized.owl.carousel refreshed.owl.carousel changed.owl.carousel', function() {
-				const dots = Array.from(document.querySelectorAll('.owl-dot'));
-				dots.forEach((dot, index) => {
-					dot.setAttribute('aria-label', `Diapositiva ${index + 1}`);
-					dot.setAttribute('role', 'tab');
-				});
+			// Ejecutar la accesibilidad de los dots una sola vez al inicializar
+			$('.home-slider').on('initialized.owl.carousel', function() {
+				requestAnimationFrame(() => {
+					document.querySelectorAll('.home-slider .owl-dot').forEach((dot, index) => {
+						dot.setAttribute('aria-label', `Diapositiva ${index + 1}`);
+						dot.setAttribute('role', 'tab');
+					});
+            	});
 			});
 
 			$('.home-slider').owlCarousel(homeSliderOptions);
-
-			document.querySelectorAll('.owl-dot').forEach((dot, index) => {
-			dot.setAttribute('aria-label', `Diapositiva ${index + 1}`);
-			});
 		}
 
 		if ($('.carousel-FAQS').length) {
@@ -171,8 +169,12 @@ import confetti from 'canvas-confetti';
 			});
 		}
 	};
-	carousel();
+	// Diferir la ejecución del carrusel para que no bloquee el renderizado inicial de la página
+	document.addEventListener("DOMContentLoaded", function() {
+		requestAnimationFrame(carousel);
+	});
 
+	
 	$('nav .dropdown').hover(function () {
 		var $this = $(this);
 		$this.addClass('show');
