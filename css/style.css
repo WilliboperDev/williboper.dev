@@ -17184,7 +17184,7 @@ a.text-dark:focus {
   max-width: 450px !important;
   max-height: none !important;
   height: auto !important;
-  width: 100% !important;
+  width: 60% !important;
   display: block !important;
   object-fit: contain !important;
 }
