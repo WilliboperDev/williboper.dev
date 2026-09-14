@@ -14962,6 +14962,7 @@ a.text-dark:focus {
   -moz-box-shadow: 0px 5px 21px -14px rgba(0, 0, 0, 0.14);
   box-shadow: 0px 5px 21px -14px rgba(0, 0, 0, 0.14);
   border-radius: 5px;
+  padding-left: 60px; 
 }
 
 .FAQS-wrap .user-img {
@@ -15008,7 +15009,7 @@ a.text-dark:focus {
 .FAQS-wrap .fa-question-circle {
   position: absolute;
   left: 14px;
-  top: 10px;
+  top: 20px;
   width: 32px;
   text-align: center;
   font-size: 2rem;
@@ -15028,7 +15029,7 @@ a.text-dark:focus {
 
 .FAQS-wrap .faq-trigger .faq-icon {
   left: 14px;
-  top: 48px;
+  top: 55px;
   width: 32px;
   text-align: center;
   font-size: 1rem;
@@ -15166,11 +15167,11 @@ a.text-dark:focus {
 
   /* Ajuste vertical del círculo y la flecha en tablets */
   .FAQS-wrap .fa-question-circle {
-    top: 4px;
+    top: 18px;
   }
 
   .FAQS-wrap .faq-trigger .faq-icon {
-    top: 38px;
+    top: 50px;
   }
 }
 
