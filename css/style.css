@@ -14103,11 +14103,6 @@ a.text-dark:focus {
   }
 }
 
-.owl-carousel.home-slider .slider-item .slider-text .one-forth {
-  width: 50%;
-  position: relative;
-}
-
 @media (min-width: 768px) {
   .owl-carousel.home-slider .slider-item .slider-text .one-forth {
     position: absolute;
@@ -14116,9 +14111,6 @@ a.text-dark:focus {
     bottom: 0;
     right: 0;
     width: 100%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
     max-width: 50%;
     padding-left: 45px;
     padding-right: 3em;
@@ -14136,25 +14128,6 @@ a.text-dark:focus {
     z-index: 1;
     padding: 1em;
     max-width: 100%;
-  }
-}
-
-.owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
-  width: 100%;
-}
-
-@media (min-width: 992px) {
-  .owl-carousel.home-slider .slider-item .slider-text .one-forth .text {
-    position: absolute;
-    top: 53%;
-    left: 0;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    right: 0;
-    max-width: 50%;
-    padding-left: 45px;
-    padding-right: 3em;
   }
 }
 
@@ -16212,31 +16185,10 @@ a.text-dark:focus {
     transition: none !important;
   }
 
-  /* .text dentro de .one-forth - sin posicionamiento absoluto */
-  .owl-carousel.home-slider .slider-item .slider-text .one-forth .text,
-  .one-forth .text {
-    width: 100% !important;
-    max-width: 100% !important;
-    position: static !important;
-    top: auto !important;
-    left: auto !important;
-    right: auto !important;
-    bottom: auto !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    padding: 0 3px !important;
-    text-align: center !important;
-    box-sizing: border-box !important;
-    /* Visibilidad expli­cita */
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-
   /* Tipografi­a del hero - visible, legible, sin margenes grandes */
   .owl-carousel.home-slider .slider-item .slider-text h1,
   .slider-text h1,
-  .one-forth h1,
-  .one-forth .text h1,
+  .one-forth h1
   h1.mb-4.mt-3,
   .one-forth h1.mb-4.mt-3 {
     font-size: 10px !important;
@@ -16270,8 +16222,7 @@ a.text-dark:focus {
   /* subheading del hero */
   .owl-carousel.home-slider .slider-item .slider-text .subheading,
   .slider-text .subheading,
-  .one-forth .subheading,
-  .one-forth .text .subheading {
+  .one-forth .subheading {
     font-size: 7px !important;
     line-height: 1.2 !important;
     margin: 1px 0 !important;
@@ -16292,8 +16243,7 @@ a.text-dark:focus {
   /* parrafos del hero */
   .owl-carousel.home-slider .slider-item .slider-text p,
   .slider-text p,
-  .one-forth p,
-  .one-forth .text p {
+  .one-forth p {
     font-size: 9px !important;
     line-height: 1.2 !important;
     text-align: center !important;
