@@ -14111,7 +14111,7 @@ a.text-dark:focus {
 @media (min-width: 768px) {
   .owl-carousel.home-slider .slider-item .slider-text .one-forth {
     position: absolute;
-    top: 53%;
+    top: 35%;
     left: 0;
     bottom: 0;
     right: 0;
@@ -14129,12 +14129,13 @@ a.text-dark:focus {
   .owl-carousel.home-slider .slider-item .slider-text .one-forth {
     width: 100%;
     position: absolute;
-    top: 0;
+    top: 36%;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 1;
     padding: 1em;
+    max-width: 100%;
   }
 }
 
