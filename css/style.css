@@ -14620,11 +14620,14 @@ a.text-dark:focus {
   margin-bottom: 60px;
 }
 
-/* Forzar que las tarjetas de servicios no brinquen por culpa de la animación */
 #servicios .ftco-animate {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
+    /* Si usa una traslación muy alta, redúcela a un movimiento casi imperceptible */
+    transform: translateY(15px); 
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#servicios .ftco-animate.ftco-animated {
+    transform: translateY(0);
 }
 
 .services .icon {
