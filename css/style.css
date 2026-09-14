@@ -15000,12 +15000,6 @@ a.text-dark:focus {
   font-weight: 500;
 }
 
-/* Ajustes para centrar el icono de flecha justo debajo del círculo */
-.FAQS-wrap .text {
-  position: relative;
-  padding-left: 60px;
-}
-
 .FAQS-wrap .fa-question-circle {
   position: absolute;
   left: 14px;
@@ -15158,11 +15152,6 @@ a.text-dark:focus {
   .FAQS-section .carousel-FAQS .owl-item .FAQS-wrap {
     width: 100%;
     min-height: auto;
-  }
-
-  /* Asegurar altura suficiente para contener círculo y flecha sin desbordes */
-  .FAQS-section .FAQS-wrap .text {
-    min-height: 60px;
   }
 
   /* Ajuste vertical del círculo y la flecha en tablets */
@@ -15765,6 +15754,11 @@ a.text-dark:focus {
     background-size: cover;
     background-repeat: no-repeat;
   }
+
+  .img-index,
+  .img-index-2 {
+    background-position: 65% top;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -15773,11 +15767,6 @@ a.text-dark:focus {
   .owl-carousel.home-slider .slider-item,
   .owl-carousel.home-slider .slider-item .slider-text {
     height: 560px;
-  }
-
-  .img-index,
-  .img-index-2 {
-    background-position: 65% top;
   }
 }
 
