@@ -14976,6 +14976,13 @@ a.text-dark:focus {
   color: #000000;
   line-height: 1.5;
   font-weight: 500;
+  font-size: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .question-title {
+    font-size: 1.1rem;
+  }
 }
 
 .FAQS-wrap .fa-question-circle {
