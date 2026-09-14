@@ -157,7 +157,7 @@
                     decoding="async"
                     width="1400 "
                     height="768">
-                    <figcaption class="text-muted small mt-2">Estructura visual de la anatomía de una carga web</figcaption>
+                    <figcaption class="text-muted small mt-2">Estructura visual de rendimiento de una carga web</figcaption>
                   </figure>
                 </div>
               </header>
@@ -168,14 +168,11 @@
 
               <h3 class="mb-3 mt-5">Fase 1 - El silencio inicial (El servidor responde)</h3>
               <p>Métrica técnica oculta: <strong>TTFB (Time to First Byte)</strong>.</p>
-              <p>Es el primer suspiro. El usuario hace clic y la pantalla se queda completamente en blanco esperando que el
-              servidor despierte y envíe los primeros datos. Si tu hosting es deficiente o tu base de datos de WordPress
-              está sobrecargada, esta fase puede tardar segundos eternos.</p>
+              <p>Es el primer suspiro. El usuario hace clic y la pantalla se queda completamente en blanco esperando que el servidor despierte y envíe los primeros datos. Si tu hosting es deficiente o la base de datos está sobrecargada, esta fase puede tardar segundos eternos.</p>
               <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
                 <p class="mb-0">
-                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
-                  <strong>¿Cómo optimizarlo?:</strong> Implementando caché a nivel de servidor, optimizando las tablas de tu
-                  base de datos y utilizando <strong>redes de distribución de contenido (CDN)</strong> para acortar la distancia física entre el servidor y el usuario.
+                  <i class="fas fa-tools mr-2 icon-green" aria-hidden="true"></i>
+                  <strong>¿Cómo optimizarlo?:</strong> Implementando caché a nivel de servidor, optimizando las tablas de base de datos y utilizando <strong>redes de distribución de contenido (CDN)</strong> para acortar la distancia física entre el servidor y el usuario.
                 </p>
               </div>
 
@@ -186,9 +183,8 @@
               es donde el usuario se da cuenta de que la página no está rota.</p>
               <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
                 <p class="mb-0">
-                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
-                  <strong>¿Cómo optimizarlo?:</strong> Minificando y limpiando los archivos CSS y JavaScript pesados que
-                  bloquean el renderizado inicial de la estructura de la web.
+                  <i class="fas fa-tools mr-2 icon-green" aria-hidden="true"></i>
+                  <strong>¿Cómo optimizarlo?:</strong> Minificando y limpiando los archivos CSS y JavaScript pesados que bloquean el renderizado inicial de la estructura de la web.
                 </p>
               </div>
 
@@ -199,10 +195,9 @@
               retención exitosa, este hito debe ocurrir en menos de <strong>2.5 segundos</strong>.</p>
               <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
                 <p class="mb-0">
-                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
+                  <i class="fas fa-tools mr-2 icon-green" aria-hidden="true"></i>
                   <strong>¿Cómo optimizarlo?:</strong> Convirtiendo las imágenes a formatos modernos como
-                  <strong>WebP/AVIF</strong> y asegurando que la imagen principal del encabezado jamás tenga activado el
-                  "Lazy Load" (retardo de carga), ya que debe aparecer de forma inmediata.
+                  <strong>WebP/AVIF</strong> y asegurando que la imagen principal del encabezado jamás tenga activado el "Lazy Load" (retardo de carga), ya que debe aparecer de forma inmediata.
                 </p>
               </div>
 
@@ -211,26 +206,25 @@
               <p>Mientras el contenido termina de bajar, las fuentes tipográficas cambian de tamaño o los banners se acomodan, provocando saltos bruscos que mueven el texto de posición. Si un usuario intenta pulsar un botón justo cuando la pantalla se desplaza, la frustración está asegurada. El diseño debe mantenerse firme.</p>
               <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
                 <p class="mb-0">
-                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
-                  <strong>¿Cómo optimizarlo?:</strong> Declarando siempre las dimensiones exactas (ancho y alto) de las
-                  imágenes en el código HTML de WordPress para reservar su espacio en pantalla antes de que se descarguen.
+                  <i class="fas fa-tools mr-2 icon-green" aria-hidden="true"></i>
+                  <strong>¿Cómo optimizarlo?:</strong> Declarando siempre las dimensiones exactas (ancho y alto) de las imágenes en el código HTML de la web, para reservar su espacio en pantalla antes de que se descarguen.
                 </p>
               </div>
 
               <h3 class="mb-3 mt-5">Fase 5 - La web responde (Interactividad total)</h3>
               <p>Métrica técnica crítica: <strong>INP (Interaction to Next Paint)</strong>.</p>
-              <p>La página parece completamente lista, pero falta la prueba de fuego: la velocidad de respuesta ante las acciones del usuario. Si la persona toca el menú móvil o intenta rellenar un formulario de contacto y la interfaz se congela debido a scripts pesados ejecutándose en segundo plano, abandonará el sitio frustrada.
+              <p>La página parece completamente lista, pero falta la prueba de fuego: la velocidad de respuesta ante las acciones del usuario. Si la persona toca el menú móvil o intenta rellenar un formulario de contacto y la interfaz se congela debido a scripts pesados ejecutándose en segundo plano, abandonará el sitio frustrado.
               </p>
               <div class="mb-4 mt-4 p-3 bloq-dest2 color-psychology-list">
                 <p class="mb-0">
-                  <i class="fas fa-tools mr-2 icon-red" aria-hidden="true"></i>
-                  <strong>¿Cómo optimizarlo?:</strong> Retardando o posponiendo la ejecución de JavaScript de terceros (como píxeles de seguimiento o widgets de chat en vivo) hasta que el usuario haya interactuado realmente con el sitio.
+                  <i class="fas fa-tools mr-2 icon-green" aria-hidden="true"></i>
+                  <strong>¿Cómo optimizarlo?:</strong> Retardando o posponiendo la ejecución de JavaScript de terceros (como píxeles de seguimiento o widgets de chat en vivo) hasta que el usuario haya interactuado realmente con el sitio web.
                 </p>
               </div>
 
               <div class="separador">••••</div>
 
-              <p>Como BONUS EXTRA a tomar en cuenta que una plataforma web no consiste en aplicar trucos mágicos; <strong>es coordinar la infraestructura de forma que cada una de estas 5 fases ocurra en milisegundos.</strong></p>
+              <p>Como BONUS EXTRA recuerda que una plataforma web no consiste en aplicar trucos mágicos; <strong>es coordinar la infraestructura de forma que cada una de estas 5 fases ocurra en milisegundos.</strong></p>
 
               <!-- CTA del Post -->
               <footer class="mt-5 cta-post">
