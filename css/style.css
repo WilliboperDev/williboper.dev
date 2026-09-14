@@ -14620,6 +14620,13 @@ a.text-dark:focus {
   margin-bottom: 60px;
 }
 
+/* Forzar que las tarjetas de servicios no brinquen por culpa de la animación */
+#servicios .ftco-animate {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+
 .services .icon {
   line-height: 1.3;
   position: relative;
