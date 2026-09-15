@@ -14627,6 +14627,10 @@ a.text-dark:focus {
     visibility: visible !important;
 }
 
+#servicios .row {
+    min-height: 230px;
+}
+
 .services .icon {
   line-height: 1.3;
   position: relative;
