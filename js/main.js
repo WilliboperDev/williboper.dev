@@ -174,7 +174,13 @@ import confetti from 'canvas-confetti';
 		requestAnimationFrame(carousel);
 	});
 
-	
+	// Estructura el árbol de accesibilidad del carrusel
+	document.addEventListener("DOMContentLoaded", function() {
+		document.querySelectorAll('.owl-dots').forEach(function(dotContainer) {
+			dotContainer.setAttribute('role', 'tablist');
+		});
+	});
+
 	$('nav .dropdown').hover(function () {
 		var $this = $(this);
 		$this.addClass('show');
