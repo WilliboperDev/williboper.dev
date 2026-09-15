@@ -14618,16 +14618,13 @@ a.text-dark:focus {
   width: 100%;
   padding: 30px;
   margin-bottom: 60px;
+  min-height: 290px;
 }
 
 #servicios .ftco-animate {
-    /* Si usa una traslación muy alta, redúcela a un movimiento casi imperceptible */
-    transform: translateY(15px); 
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-#servicios .ftco-animate.ftco-animated {
-    transform: translateY(0);
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
 }
 
 .services .icon {
