@@ -132,6 +132,12 @@ import confetti from 'canvas-confetti';
 			// Ejecutar la accesibilidad de los dots una sola vez al inicializar
 			$('.home-slider').on('initialized.owl.carousel', function() {
 				requestAnimationFrame(() => {
+					// Asignar el rol tablist al contenedor padre dentro de este slider
+					const dotsContainer = document.querySelector('.home-slider .owl-dots');
+                    if (dotsContainer) {
+                        dotsContainer.setAttribute('role', 'tablist');
+                    }
+					// Asignar atributos a cada botón individual
 					document.querySelectorAll('.home-slider .owl-dot').forEach((dot, index) => {
 						dot.setAttribute('aria-label', `Diapositiva ${index + 1}`);
 						dot.setAttribute('role', 'tab');
@@ -172,13 +178,6 @@ import confetti from 'canvas-confetti';
 	// Diferir la ejecución del carrusel para que no bloquee el renderizado inicial de la página
 	document.addEventListener("DOMContentLoaded", function() {
 		requestAnimationFrame(carousel);
-	});
-
-	// Estructura el árbol de accesibilidad del carrusel
-	document.addEventListener("DOMContentLoaded", function() {
-		document.querySelectorAll('.owl-dots').forEach(function(dotContainer) {
-			dotContainer.setAttribute('role', 'tablist');
-		});
 	});
 
 	$('nav .dropdown').hover(function () {
