@@ -14618,17 +14618,6 @@ a.text-dark:focus {
   width: 100%;
   padding: 30px;
   margin-bottom: 60px;
-  min-height: 290px;
-}
-
-#servicios .ftco-animate {
-    opacity: 1 !important;
-    transform: none !important;
-    visibility: visible !important;
-}
-
-#servicios .row {
-    min-height: 230px;
 }
 
 .services .icon {
@@ -17585,6 +17574,7 @@ a.text-dark:focus {
   padding: 0.2rem 0.5rem;
   border-radius: 0.45rem;
   margin: 0 0.15rem;
+  will-change: transform, opacity; /* <--- Le avisa al navegador que optimice estas propiedades en la GPU */
 }
 
 .code-loader span:nth-child(odd) {
@@ -17595,7 +17585,6 @@ a.text-dark:focus {
   to {
     transform: scale(0.8);
     opacity: 0.5;
-    background: rgba(255, 255, 255, 0.98);
   }
 }
 
