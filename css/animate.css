@@ -24,6 +24,7 @@ Copyright (c) 2015 Daniel Eden
   animation-duration: .8s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
+  visibility: visible !important;
 }
 
 .animated.infinite {
@@ -1417,14 +1418,12 @@ Copyright (c) 2015 Daniel Eden
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
-    visibility: hidden;
     -webkit-transform: translate3d(0, 40px, 0);
     transform: translate3d(0, 40px, 0);
   }
 
   to {
     opacity: 1;
-    visibility: visible;
     -webkit-transform: none;
     transform: none;
   }
