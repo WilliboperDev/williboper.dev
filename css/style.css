@@ -4395,23 +4395,30 @@ textarea.form-control.is-invalid {
 }
 
 .btn.btn-primary.btn-outline-primary {
+  position: relative;
   border: 2px solid var(--primary-marca) !important;
   background: transparent !important;
   color: #000000 !important;
-  animation: glow 2s infinite;
+}
+
+.btn.btn-primary.btn-outline-primary::after {
+  content: '';
+  position: absolute;
+  inset: -2px; /* Se acopla al borde del botón */
+  border-radius: inherit; /* Hereda los bordes redondeados del botón */
+  box-shadow: 0 0 15px rgba(250, 184, 0, 0.4);
+  z-index: -1;
+  opacity: 0.3;
+  animation: glow 2s infinite ease-in-out;
+  will-change: opacity; /* Le avisa al navegador que optimice esta propiedad */
 }
 
 @keyframes glow {
-  0% {
-    box-shadow: 0 0 5px rgba(250, 184, 0, 0.2);
+  0%, 100% {
+    opacity: 0.2; /* Equivalente al shadow suave */
   }
-
   50% {
-    box-shadow: 0 0 15px rgba(250, 184, 0, 0.4);
-  }
-
-  100% {
-    box-shadow: 0 0 5px rgba(250, 184, 0, 0.2);
+    opacity: 1;   /* Equivalente al shadow intenso */
   }
 }
 
@@ -4462,12 +4469,24 @@ textarea.form-control.is-invalid {
 }
 
 .btn.btn-white {
+  position: relative;
   font-size: 20px;
   line-height: 1;
   border: 2px solid var(--primary-marca) !important;
   background: #075e54 !important;
   color: #fff !important;
-  animation: glow 2s infinite;
+}
+
+.btn.btn-white::after {
+  content: '';
+  position: absolute;
+  inset: -2px; /* Se acopla perfectamente al borde */
+  border-radius: inherit; /* Hereda las esquinas redondeadas si las tiene */
+  box-shadow: 0 0 15px rgba(250, 184, 0, 0.4);
+  z-index: -1;
+  opacity: 0.3;
+  animation: glow 2s infinite ease-in-out;
+  will-change: opacity;
 }
 
 .btn.btn-white:hover {
