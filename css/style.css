@@ -17567,13 +17567,12 @@ a.text-dark:focus {
   background: rgba(255, 255, 255, 0.98);
   z-index: 100002;
   opacity: 1;
-  visibility: visible;
-  transition: opacity .4s ease-out, visibility 0s linear .4s;
+  pointer-events: auto;
+  transition: opacity .4s ease-out;
 }
 
 #loader.hidden {
   opacity: 0;
-  visibility: hidden;
   pointer-events: none;
 }
 
