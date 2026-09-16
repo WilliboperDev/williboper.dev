@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Página de Inicio (Máxima prioridad) -->
+  <url>
+    <loc>https://williboper-dev.vercel.app/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Página "Sobre mí" -->
+  <url>
+    <loc>https://williboper-dev.vercel.app/sobre-mi</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Artículos de Blog (Prioridad estándar unificada) -->
+  <url>
+    <loc>https://williboper-dev.vercel.app/blog/secreto-para-que-tus-clientes-no-abandonen-tu-web</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://williboper-dev.vercel.app/blog/psicologia-del-color-como-elegir-tonos-correctos-para-tu-pagina-web</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://williboper-dev.vercel.app/blog/anatomia-de-una-carga-web-5-segundos-donde-pierdes-o-ganas-clientes</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://williboper-dev.vercel.app/blog/optimizacion-de-automatizaciones-en-pipedream</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
